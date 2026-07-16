@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-950 text-parchment antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(42, 111, 122, 0.18), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 0%, rgba(196, 163, 90, 0.08), transparent),
+    linear-gradient(180deg, #0b1220 0%, #111b2e 40%, #0b1220 100%);
+  min-height: 100vh;
+}
+
+.recharts-legend-item-text {
+  color: #8b97a8 !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: #8b97a8;
+}

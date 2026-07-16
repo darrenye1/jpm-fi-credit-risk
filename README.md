@@ -1,0 +1,74 @@
+# JPM Financial Institution Credit Risk Dashboard
+
+Corporate banking–style **FI obligor credit risk** analysis for **JPMorgan Chase (JPM)**, with a Python pipeline and a Next.js dashboard for Vercel.
+
+This is **not** a corporate EBITDA / covenant model. Banks are scored on capital, asset quality, liquidity, and earnings.
+
+## What It Covers
+
+| Module | Description |
+|--------|-------------|
+| **FI Metrics** | CET1, NPL, NCO, LCR, NIM, ROAA + statement trends from Yahoo Finance |
+| **Internal Rating** | Weighted FI scorecard → rating → through-the-cycle PD |
+| **Facility EL** | Hypothetical revolver / term loan / SBLC → EAD, LGD, EL |
+| **Stress Testing** | Mild, severe, and funding/deposit shock scenarios |
+| **Early Warning** | Policy thresholds, watchlist, recommended actions |
+| **Peers** | JPM vs BAC, WFC, C on the same scorecard |
+
+## Tech Stack
+
+- **Python 3.10+** — data + credit engine
+- **Next.js 15 + React** — interactive dashboard
+- **yfinance / pandas** — market & statements
+- **Recharts** — charts
+- **Vercel** — hosting (`web/` root)
+
+## Quick Start
+
+### Python
+
+```bash
+pip install -r requirements.txt
+python main.py
+```
+
+### Export for web + run dashboard
+
+```bash
+python scripts/export_for_web.py
+cd web
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+### Deploy
+
+See [web/DEPLOY.md](web/DEPLOY.md). Set Vercel **Root Directory** = `web`.
+
+## Project Structure
+
+```
+├── main.py
+├── data/regulatory_metrics.json   # CET1 / NPL / LCR overlay (update after earnings)
+├── scripts/export_for_web.py
+├── src/
+│   ├── data_fetcher.py
+│   ├── fi_metrics.py
+│   ├── rating_model.py
+│   ├── facility_risk.py
+│   ├── stress.py
+│   ├── early_warning.py
+│   └── peers.py
+├── outputs/reports/
+└── web/                           # Next.js app (Vercel)
+```
+
+## Interview Narrative
+
+> Built an FI credit risk workflow for JPM: regulatory capital & asset-quality scorecard, facility-level expected loss, stress scenarios, and early-warning monitoring — deployed as an interactive credit dashboard.
+
+## Disclaimer
+
+Educational portfolio project. Internal ratings, PDs, LGDs, and facilities are **illustrative** — not official bank models, agency ratings, or actual exposures. Regulatory metrics in `data/regulatory_metrics.json` should be refreshed from filings.

@@ -1,0 +1,15 @@
+FI CREDIT RISK MEMO — JPM (JPMorgan Chase & Co.)
+============================================================
+Internal Rating: AA  |  Score: 86.8  |  Outlook: Stable-Positive
+TTC PD: 0.05%
+CET1: 15.7%  |  NPL: 0.72%  |  LCR: 113%
+Hypothetical Total Commitment: $825mm
+Total EAD: $597.0mm  |  Total EL: $0.134mm
+Early Warning: Pass  |  Watchlist: False
+
+Key actions:
+  - Maintain routine annual review cycle
+  - Keep existing facility limits; no rating override needed
+  - Refresh regulatory overlay after next 10-Q / earnings
+
+Educational portfolio project. Internal ratings, PDs, LGDs, and facilities are illustrative — not official bank models, agency ratings, or actual exposures.

@@ -1,0 +1,486 @@
+{
+  "meta": {
+    "ticker": "JPM",
+    "name": "JPMorgan Chase & Co.",
+    "framework": "Financial Institution (FI) Obligor Credit Risk",
+    "disclaimer": "Educational portfolio project. Internal ratings, PDs, LGDs, and facilities are illustrative \u2014 not official bank models, agency ratings, or actual exposures."
+  },
+  "metrics": {
+    "ticker": "JPM",
+    "name": "JPMorgan Chase & Co.",
+    "as_of_market": "2026-07-15",
+    "regulatory_as_of": "2025-12-31",
+    "market_cap": 922156204032,
+    "total_assets": 4424900000000.0,
+    "stockholders_equity": 362438000000.0,
+    "total_deposits": null,
+    "net_income": 57048000000.0,
+    "revenue": 181847000000.0,
+    "equity_to_assets": 8.1909,
+    "roe_reported": 15.7401,
+    "asset_growth_yoy": 10.5447,
+    "ni_growth_yoy": -2.4337,
+    "provision_to_revenue": null,
+    "cet1_ratio": 15.7,
+    "tier1_ratio": 16.8,
+    "total_capital_ratio": 18.5,
+    "leverage_ratio": 6.9,
+    "lcr": 113,
+    "npl_ratio": 0.72,
+    "nco_ratio": 0.58,
+    "allowance_to_loans": 1.65,
+    "nim": 2.65,
+    "efficiency_ratio": 51.2,
+    "roaa": 1.35,
+    "roae": 16.8,
+    "loan_to_deposit": 58.0,
+    "g_sib": true,
+    "peer_group": "G-SIB / Money Center",
+    "annual_trends": [
+      {
+        "year": 2022,
+        "totalAssets": 3665743000000.0,
+        "equity": 292332000000.0,
+        "netIncome": 37676000000.0,
+        "revenue": 127727000000.0,
+        "equityToAssets": 7.9747
+      },
+      {
+        "year": 2023,
+        "totalAssets": 3875393000000.0,
+        "equity": 327878000000.0,
+        "netIncome": 49552000000.0,
+        "revenue": 154952000000.0,
+        "equityToAssets": 8.4605
+      },
+      {
+        "year": 2024,
+        "totalAssets": 4002814000000.0,
+        "equity": 344758000000.0,
+        "netIncome": 58471000000.0,
+        "revenue": 169439000000.0,
+        "equityToAssets": 8.6129
+      },
+      {
+        "year": 2025,
+        "totalAssets": 4424900000000.0,
+        "equity": 362438000000.0,
+        "netIncome": 57048000000.0,
+        "revenue": 181847000000.0,
+        "equityToAssets": 8.1909
+      }
+    ],
+    "notes": [
+      "FI credit analysis uses regulatory capital & asset-quality metrics \u2014 not corporate EBITDA leverage.",
+      "Regulatory overlay as of 2025-12-31 (Company filings / investor presentations (illustrative for portfolio demo)).",
+      "Market statements from Yahoo Finance; CET1/NPL/NIM from curated filing-based overlay."
+    ]
+  },
+  "rating": {
+    "ticker": "JPM",
+    "total_score": 86.8,
+    "internal_rating": "AA",
+    "pd_ttc_pct": 0.05,
+    "outlook": "Stable-Positive",
+    "factors": [
+      {
+        "name": "CET1 Ratio",
+        "category": "Capital",
+        "raw_value": 15.7,
+        "unit": "%",
+        "score": 95.0,
+        "weight": 0.25,
+        "weighted": 23.75,
+        "rationale": "CET1 well above peer / regulatory comfort"
+      },
+      {
+        "name": "Leverage Ratio",
+        "category": "Capital",
+        "raw_value": 6.9,
+        "unit": "%",
+        "score": 88.0,
+        "weight": 0.1,
+        "weighted": 8.8,
+        "rationale": "Conservative leverage"
+      },
+      {
+        "name": "NPL Ratio",
+        "category": "Asset Quality",
+        "raw_value": 0.72,
+        "unit": "%",
+        "score": 80.0,
+        "weight": 0.18,
+        "weighted": 14.4,
+        "rationale": "Solid asset quality"
+      },
+      {
+        "name": "NCO Ratio",
+        "category": "Asset Quality",
+        "raw_value": 0.58,
+        "unit": "%",
+        "score": 78.0,
+        "weight": 0.1,
+        "weighted": 7.8,
+        "rationale": "Contained credit losses"
+      },
+      {
+        "name": "LCR",
+        "category": "Liquidity",
+        "raw_value": 113,
+        "unit": "%",
+        "score": 80.0,
+        "weight": 0.15,
+        "weighted": 12.0,
+        "rationale": "LCR above regulatory minimum with buffer"
+      },
+      {
+        "name": "ROAA",
+        "category": "Earnings",
+        "raw_value": 1.35,
+        "unit": "%",
+        "score": 90.0,
+        "weight": 0.12,
+        "weighted": 10.8,
+        "rationale": "Strong through-cycle profitability"
+      },
+      {
+        "name": "Efficiency Ratio",
+        "category": "Earnings",
+        "raw_value": 51.2,
+        "unit": "%",
+        "score": 92.0,
+        "weight": 0.1,
+        "weighted": 9.2,
+        "rationale": "Best-in-class efficiency"
+      }
+    ],
+    "methodology_notes": [
+      "Weighted expert scorecard tailored to bank obligors (capital, AQ, liquidity, earnings).",
+      "Internal ratings mapped to illustrative through-the-cycle PD \u2014 not agency ratings.",
+      "G-SIB status is a qualitative positive for recovery / systemic support, not a score input."
+    ]
+  },
+  "portfolio": {
+    "obligor": "JPM",
+    "rating": "AA",
+    "pd_pct": 0.05,
+    "facilities": [
+      {
+        "facility": {
+          "name": "Syndicated Revolving Credit",
+          "facility_type": "Revolver",
+          "commitment_mm": 500.0,
+          "drawn_mm": 120.0,
+          "seniority": "Senior Unsecured",
+          "collateral": "None",
+          "tenor_years": 5.0,
+          "undrawn_ccf": 0.4
+        },
+        "ead_mm": 272.0,
+        "lgd_pct": 45.0,
+        "pd_pct": 0.05,
+        "el_mm": 0.0612,
+        "el_bps_of_ead": 2.2,
+        "risk_weight_note": "Illustrative standardized-style LGD; not IRB approved estimates."
+      },
+      {
+        "facility": {
+          "name": "Bilateral Term Loan",
+          "facility_type": "Term Loan",
+          "commitment_mm": 250.0,
+          "drawn_mm": 250.0,
+          "seniority": "Senior Unsecured",
+          "collateral": "None",
+          "tenor_years": 3.0,
+          "undrawn_ccf": 0.0
+        },
+        "ead_mm": 250.0,
+        "lgd_pct": 45.0,
+        "pd_pct": 0.05,
+        "el_mm": 0.0563,
+        "el_bps_of_ead": 2.2,
+        "risk_weight_note": "Illustrative standardized-style LGD; not IRB approved estimates."
+      },
+      {
+        "facility": {
+          "name": "Standby Letter of Credit",
+          "facility_type": "Contingent",
+          "commitment_mm": 75.0,
+          "drawn_mm": 0.0,
+          "seniority": "Senior Unsecured",
+          "collateral": "None",
+          "tenor_years": 1.0,
+          "undrawn_ccf": 1.0
+        },
+        "ead_mm": 75.0,
+        "lgd_pct": 45.0,
+        "pd_pct": 0.05,
+        "el_mm": 0.0169,
+        "el_bps_of_ead": 2.2,
+        "risk_weight_note": "Illustrative standardized-style LGD; not IRB approved estimates."
+      }
+    ],
+    "total_commitment_mm": 825.0,
+    "total_ead_mm": 597.0,
+    "total_el_mm": 0.1344,
+    "narrative": [
+      "Hypothetical bank exposure to JPM as FI obligor / counterparty.",
+      "PD from internal rating AA (0.05% TTC).",
+      "EAD = drawn + undrawn \u00d7 CCF; EL = PD \u00d7 LGD \u00d7 EAD.",
+      "Facilities are illustrative for demo \u2014 not actual JPMorgan Chase borrowings."
+    ]
+  },
+  "stress": [
+    {
+      "scenario": {
+        "id": "base",
+        "name": "Base",
+        "description": "Current regulatory overlay and market statements \u2014 no shock.",
+        "cet1_shock_pp": 0.0,
+        "npl_shock_pp": 0.0,
+        "nco_shock_pp": 0.0,
+        "lcr_shock_pp": 0.0,
+        "roaa_shock_pp": 0.0,
+        "efficiency_shock_pp": 0.0,
+        "pd_multiplier": 1.0
+      },
+      "stressed_metrics": {
+        "cet1_ratio": 15.7,
+        "npl_ratio": 0.72,
+        "nco_ratio": 0.58,
+        "lcr": 113.0,
+        "roaa": 1.35,
+        "efficiency_ratio": 51.2
+      },
+      "rating": "AA",
+      "score": 86.8,
+      "pd_pct": 0.05,
+      "total_el_mm": 0.1344,
+      "el_vs_base_mm": 0.0,
+      "flags": [
+        "No hard limit breach under this scenario"
+      ]
+    },
+    {
+      "scenario": {
+        "id": "mild",
+        "name": "Mild Downturn",
+        "description": "Soft landing: modest AQ deterioration, NIM pressure, limited capital drawdown.",
+        "cet1_shock_pp": -0.8,
+        "npl_shock_pp": 0.35,
+        "nco_shock_pp": 0.25,
+        "lcr_shock_pp": -5,
+        "roaa_shock_pp": -0.25,
+        "efficiency_shock_pp": 3.0,
+        "pd_multiplier": 1.5
+      },
+      "stressed_metrics": {
+        "cet1_ratio": 14.9,
+        "npl_ratio": 1.07,
+        "nco_ratio": 0.83,
+        "lcr": 108,
+        "roaa": 1.1,
+        "efficiency_ratio": 54.2
+      },
+      "rating": "BBB+",
+      "score": 73.8,
+      "pd_pct": 0.375,
+      "total_el_mm": 1.0075,
+      "el_vs_base_mm": 0.8731,
+      "flags": [
+        "No hard limit breach under this scenario"
+      ]
+    },
+    {
+      "scenario": {
+        "id": "severe",
+        "name": "Severe Credit Cycle",
+        "description": "Deep recession: rising NPLs/NCOs, capital depletion, liquidity stress.",
+        "cet1_shock_pp": -2.5,
+        "npl_shock_pp": 1.2,
+        "nco_shock_pp": 0.9,
+        "lcr_shock_pp": -15,
+        "roaa_shock_pp": -0.7,
+        "efficiency_shock_pp": 8.0,
+        "pd_multiplier": 3.0
+      },
+      "stressed_metrics": {
+        "cet1_ratio": 13.2,
+        "npl_ratio": 1.92,
+        "nco_ratio": 1.48,
+        "lcr": 98,
+        "roaa": 0.65,
+        "efficiency_ratio": 59.2
+      },
+      "rating": "BBB-",
+      "score": 59.0,
+      "pd_pct": 1.8,
+      "total_el_mm": 4.8357,
+      "el_vs_base_mm": 4.7013,
+      "flags": [
+        "NPL above watchlist threshold (1.5%)",
+        "LCR buffer thin (<105%)"
+      ]
+    },
+    {
+      "scenario": {
+        "id": "funding",
+        "name": "Funding / Deposit Shock",
+        "description": "2023-style deposit flight & wholesale funding stress \u2014 liquidity first.",
+        "cet1_shock_pp": -0.5,
+        "npl_shock_pp": 0.2,
+        "nco_shock_pp": 0.1,
+        "lcr_shock_pp": -25,
+        "roaa_shock_pp": -0.4,
+        "efficiency_shock_pp": 4.0,
+        "pd_multiplier": 2.0
+      },
+      "stressed_metrics": {
+        "cet1_ratio": 15.2,
+        "npl_ratio": 0.92,
+        "nco_ratio": 0.68,
+        "lcr": 88,
+        "roaa": 0.95,
+        "efficiency_ratio": 55.2
+      },
+      "rating": "BBB+",
+      "score": 73.5,
+      "pd_pct": 0.5,
+      "total_el_mm": 1.3433,
+      "el_vs_base_mm": 1.2089,
+      "flags": [
+        "LCR buffer thin (<105%)"
+      ]
+    }
+  ],
+  "earlyWarning": {
+    "ticker": "JPM",
+    "watchlist": false,
+    "overall_status": "Pass",
+    "items": [
+      {
+        "indicator": "CET1 Ratio",
+        "threshold": "\u2265 11.5% (watch < 13%)",
+        "actual": "15.70%",
+        "status": "Pass",
+        "severity": "Low",
+        "comment": "Capital adequacy vs internal FI limit"
+      },
+      {
+        "indicator": "NPL Ratio",
+        "threshold": "\u2264 1.5% (watch > 1.0%)",
+        "actual": "0.72%",
+        "status": "Pass",
+        "severity": "Low",
+        "comment": "Asset quality deterioration signal"
+      },
+      {
+        "indicator": "NCO Ratio",
+        "threshold": "\u2264 1.0% (watch > 0.7%)",
+        "actual": "0.58%",
+        "status": "Pass",
+        "severity": "Low",
+        "comment": "Loss content / underwriting quality"
+      },
+      {
+        "indicator": "LCR",
+        "threshold": "\u2265 105% (watch < 110%)",
+        "actual": "113.00%",
+        "status": "Pass",
+        "severity": "Low",
+        "comment": "Liquidity buffer for deposit / wholesale stress"
+      },
+      {
+        "indicator": "ROAA",
+        "threshold": "\u2265 0.60% (watch < 0.90%)",
+        "actual": "1.35%",
+        "status": "Pass",
+        "severity": "Low",
+        "comment": "Earnings capacity to absorb credit costs"
+      },
+      {
+        "indicator": "Efficiency Ratio",
+        "threshold": "\u2264 70% (watch > 60%)",
+        "actual": "51.20%",
+        "status": "Pass",
+        "severity": "Low",
+        "comment": "Operating leverage / cost flexibility"
+      },
+      {
+        "indicator": "Internal Rating",
+        "threshold": "\u2265 BBB- (watch \u2264 BBB)",
+        "actual": "AA",
+        "status": "Pass",
+        "severity": "Low",
+        "comment": "Obligor grade vs investment-grade policy floor"
+      }
+    ],
+    "recommended_actions": [
+      "Maintain routine annual review cycle",
+      "Keep existing facility limits; no rating override needed",
+      "Refresh regulatory overlay after next 10-Q / earnings"
+    ]
+  },
+  "peers": [
+    {
+      "ticker": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "cet1_ratio": 15.7,
+      "npl_ratio": 0.72,
+      "lcr": 113,
+      "roaa": 1.35,
+      "efficiency_ratio": 51.2,
+      "leverage_ratio": 6.9,
+      "internal_rating": "AA",
+      "score": 86.8,
+      "isFocus": true
+    },
+    {
+      "ticker": "BAC",
+      "name": "Bank of America Corp.",
+      "cet1_ratio": 13.5,
+      "npl_ratio": 0.85,
+      "lcr": 110,
+      "roaa": 0.95,
+      "efficiency_ratio": 63.5,
+      "leverage_ratio": 6.1,
+      "internal_rating": "A",
+      "score": 77.8,
+      "isFocus": false
+    },
+    {
+      "ticker": "WFC",
+      "name": "Wells Fargo & Co.",
+      "cet1_ratio": 11.8,
+      "npl_ratio": 0.95,
+      "lcr": 125,
+      "roaa": 1.05,
+      "efficiency_ratio": 66.0,
+      "leverage_ratio": 7.8,
+      "internal_rating": "BBB+",
+      "score": 72.3,
+      "isFocus": false
+    },
+    {
+      "ticker": "C",
+      "name": "Citigroup Inc.",
+      "cet1_ratio": 13.6,
+      "npl_ratio": 0.88,
+      "lcr": 116,
+      "roaa": 0.72,
+      "efficiency_ratio": 60.0,
+      "leverage_ratio": 5.9,
+      "internal_rating": "A",
+      "score": 75.4,
+      "isFocus": false
+    }
+  ],
+  "market": {
+    "price": 346.91,
+    "marketCap": 922156204032,
+    "beta": null,
+    "sector": "Financial Services",
+    "industry": "Banks - Diversified",
+    "currency": "USD"
+  }
+}
