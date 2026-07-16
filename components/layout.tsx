@@ -101,7 +101,7 @@ export function Header({
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded bg-bank-green font-display text-sm font-bold text-white">
-            TD
+            {ticker.slice(0, 3)}
           </div>
           <div>
             <h1 className="font-display text-base font-semibold text-bank-ink md:text-lg">{name}</h1>
@@ -158,8 +158,8 @@ export function Hero({
           {name}
         </h2>
         <p className="mt-3 max-w-xl text-[0.98rem] leading-relaxed text-bank-muted">
-          FI obligor credit memo — capital &amp; asset-quality scorecard, facility EL, stress testing,
-          and early-warning monitoring.
+          FI obligor credit memo for a hypothetical Canadian bank — capital &amp; asset-quality
+          scorecard, facility EL, stress testing, and early-warning monitoring.
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
           {[
@@ -185,7 +185,7 @@ export function Hero({
             Live · Yahoo — market cap, assets, earnings, trends (auto-refresh weekly)
           </span>
           <span className="rounded border border-bank-green/30 bg-bank-greenSoft px-2.5 py-1 font-medium text-bank-green">
-            From filings — CET1, NPL, LCR, NIM (update after earnings)
+            Overlay — stylized CET1, NPL, LCR, NIM (illustrative)
           </span>
           <span className="rounded border border-amber-200 bg-amber-50 px-2.5 py-1 font-medium text-bank-warn">
             Illustrative — internal rating, PD, facility EL, stress
@@ -208,6 +208,22 @@ export function Footer({ disclaimer }: { disclaimer: string }) {
         Built by {author.name} · FI Credit Risk portfolio project · For educational purposes only
       </p>
       <p className="mx-auto mt-3 max-w-3xl text-xs leading-relaxed">{disclaimer}</p>
+      <p className="mx-auto mt-2 max-w-3xl text-xs leading-relaxed text-bank-muted">
+        Personal views only. This project does not represent any employer or financial institution.
+      </p>
     </footer>
+  );
+}
+
+export function DisclaimerBanner({ disclaimer }: { disclaimer: string }) {
+  return (
+    <div className="border-b border-amber-200 bg-amber-50">
+      <div className="mx-auto max-w-7xl px-6 py-3">
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-bank-warn">
+          Disclaimer
+        </p>
+        <p className="mt-1 text-xs leading-relaxed text-bank-muted md:text-sm">{disclaimer}</p>
+      </div>
+    </div>
   );
 }

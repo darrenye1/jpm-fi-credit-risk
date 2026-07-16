@@ -23,14 +23,14 @@ def _round_floats(obj, ndigits: int = 4):
     return obj
 
 
-def export(ticker: str = "TD") -> Path:
+def export(ticker: str = "HCB") -> Path:
     payload = _round_floats(run(ticker))
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     payload.setdefault("meta", {})
     payload["meta"]["last_refreshed_at"] = now
     payload["meta"]["auto_refresh"] = (
-        "GitHub Actions refreshes Yahoo Finance market/statement data weekly. "
-        "Update data/regulatory_metrics.json after each earnings release for CET1/NPL/LCR."
+        "GitHub Actions refreshes public market/statement data weekly for illustration. "
+        "Update data/regulatory_metrics.json to refresh the stylized regulatory overlay."
     )
 
     targets = [
@@ -46,5 +46,5 @@ def export(ticker: str = "TD") -> Path:
 
 
 if __name__ == "__main__":
-    ticker = sys.argv[1] if len(sys.argv) > 1 else "TD"
+    ticker = sys.argv[1] if len(sys.argv) > 1 else "HCB"
     export(ticker.upper())

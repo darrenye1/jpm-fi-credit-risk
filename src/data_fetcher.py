@@ -64,6 +64,8 @@ class FIDataFetcher:
     """Pull Yahoo Finance fundamentals + price history for bank tickers."""
 
     def __init__(self, ticker: str = "TD"):
+        # Default ticker is a liquid public series used only as an illustration source.
+        # Downstream pipeline overwrites display identity to a hypothetical bank.
         self.ticker = ticker.upper()
         self._stock = yf.Ticker(self.ticker)
 

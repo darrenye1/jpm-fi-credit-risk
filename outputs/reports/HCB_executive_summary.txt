@@ -1,0 +1,15 @@
+FI CREDIT RISK MEMO — HCB (Hypothetical Canadian Bank)
+============================================================
+Internal Rating: A  |  Score: 81.9  |  Outlook: Stable
+TTC PD: 0.10%
+CET1: 14.5%  |  NPL: 0.57%  |  LCR: 137%
+Hypothetical Total Commitment: $825mm
+Total EAD: $597.0mm  |  Total EL: $0.269mm
+Early Warning: Pass  |  Watchlist: False
+
+Key actions:
+  - Maintain routine annual review cycle
+  - Keep existing facility limits; no rating override needed
+  - Refresh the stylized regulatory overlay when updating the demo dataset
+
+Educational portfolio project. The obligor is presented as a hypothetical Canadian bank. Market and statement figures are drawn from public market data providers for illustration only; regulatory-style ratios are a stylized overlay calibrated to publicly reported Canadian large-bank ranges. Internal ratings, PDs, LGDs, facilities, peer labels, and stress scenarios are illustrative — not official bank models, agency ratings, actual exposures, or the views of any employer or financial institution. Not investment or credit advice.

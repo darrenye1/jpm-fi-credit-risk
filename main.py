@@ -1,4 +1,4 @@
-"""Run full TD Bank FI credit risk analysis pipeline."""
+"""Run FI credit risk analysis for a hypothetical Canadian bank."""
 
 from __future__ import annotations
 
@@ -9,6 +9,12 @@ from src.data_fetcher import FIDataFetcher
 from src.early_warning import build_early_warning
 from src.facility_risk import build_portfolio_el
 from src.fi_metrics import build_fi_metrics
+from src.identity import (
+    DISCLAIMER,
+    DISPLAY_NAME,
+    DISPLAY_TICKER,
+    MARKET_DATA_TICKER,
+)
 from src.peers import build_peer_table
 from src.rating_model import rate_fi_obligor
 from src.stress import run_stress_suite
@@ -18,9 +24,18 @@ OUTPUTS = ROOT / "outputs"
 REPORTS = OUTPUTS / "reports"
 
 
-def run(ticker: str = "TD") -> dict:
-    print(f"[1/6] Fetching market & statements for {ticker}...")
-    data = FIDataFetcher(ticker).fetch()
+def run(ticker: str = DISPLAY_TICKER) -> dict:
+    display_ticker = (ticker or DISPLAY_TICKER).upper()
+    if display_ticker in {DISPLAY_TICKER, MARKET_DATA_TICKER}:
+        display_ticker = DISPLAY_TICKER
+        market_ticker = MARKET_DATA_TICKER
+    else:
+        market_ticker = display_ticker
+
+    print(f"[1/6] Fetching market & statements (source ticker for illustration)...")
+    data = FIDataFetcher(market_ticker).fetch()
+    data.ticker = display_ticker
+    data.name = DISPLAY_NAME if display_ticker == DISPLAY_TICKER else data.name
 
     print("[2/6] Building FI credit metrics...")
     metrics = build_fi_metrics(data)
@@ -36,19 +51,14 @@ def run(ticker: str = "TD") -> dict:
 
     print("[6/6] Early warning + peer table...")
     ews = build_early_warning(metrics, rating)
-    peers = build_peer_table(ticker)
+    peers = build_peer_table(display_ticker)
 
     payload = {
         "meta": {
-            "ticker": ticker,
+            "ticker": display_ticker,
             "name": metrics.name,
             "framework": "Financial Institution (FI) Obligor Credit Risk",
-            "disclaimer": (
-                "Educational portfolio project. Market & statement figures from Yahoo Finance; "
-                "CET1/NPL/LCR and related ratios from each bank's Q1 2026 filings. "
-                "Internal ratings, PDs, LGDs, facilities, and stress scenarios are illustrative — "
-                "not official bank models, agency ratings, or actual exposures."
-            ),
+            "disclaimer": DISCLAIMER,
         },
         "metrics": metrics.to_dict(),
         "rating": rating.to_dict(),
@@ -67,13 +77,12 @@ def run(ticker: str = "TD") -> dict:
     }
 
     REPORTS.mkdir(parents=True, exist_ok=True)
-    out_path = REPORTS / f"{ticker}_fi_credit_risk.json"
+    out_path = REPORTS / f"{display_ticker}_fi_credit_risk.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, default=str)
     print(f"Saved {out_path.name}")
 
-    # Short text summary
-    summary_path = REPORTS / f"{ticker}_executive_summary.txt"
+    summary_path = REPORTS / f"{display_ticker}_executive_summary.txt"
     summary = _executive_summary(payload)
     summary_path.write_text(summary, encoding="utf-8")
     print(f"Saved {summary_path.name}")
@@ -108,4 +117,4 @@ def _executive_summary(payload: dict) -> str:
 
 
 if __name__ == "__main__":
-    run("TD")
+    run(DISPLAY_TICKER)

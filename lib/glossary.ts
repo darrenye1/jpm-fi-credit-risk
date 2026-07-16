@@ -25,11 +25,11 @@ export const METRIC_LABELS = {
 } as const;
 
 export const BANK_SHORT: Record<string, string> = {
-  TD: "TD Bank",
-  RY: "Royal Bank of Canada",
-  BNS: "Bank of Nova Scotia",
-  BMO: "Bank of Montreal",
-  CM: "Canadian Imperial Bank of Commerce",
+  HCB: "Hypothetical Canadian Bank",
+  PB1: "Peer Bank Alpha",
+  PB2: "Peer Bank Beta",
+  PB3: "Peer Bank Gamma",
+  PB4: "Peer Bank Delta",
 };
 
 export const FACTOR_LABELS: Record<string, string> = {

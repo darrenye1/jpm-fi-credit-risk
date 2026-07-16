@@ -1,4 +1,4 @@
-"""Peer comparison for Canadian Big 5 banks."""
+"""Peer comparison for a hypothetical Canadian large-bank set."""
 
 from __future__ import annotations
 
@@ -6,10 +6,8 @@ from dataclasses import asdict, dataclass
 from typing import Any
 
 from .fi_metrics import FICreditMetrics, load_regulatory
+from .identity import DISPLAY_TICKER, PEER_TICKERS
 from .rating_model import rate_fi_obligor
-
-# Canadian Big 5 (NYSE / TSX dual-listed tickers via Yahoo Finance)
-PEER_TICKERS = ["TD", "RY", "BNS", "BMO", "CM"]
 
 
 @dataclass
@@ -71,7 +69,7 @@ def _metrics_from_reg(ticker: str) -> FICreditMetrics:
     )
 
 
-def build_peer_table(focus: str = "TD") -> list[dict[str, Any]]:
+def build_peer_table(focus: str = DISPLAY_TICKER) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for t in PEER_TICKERS:
         m = _metrics_from_reg(t)

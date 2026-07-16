@@ -1,11 +1,11 @@
-# Auto-refresh TD FI credit dashboard data, then push so Vercel redeploys.
+# Auto-refresh hypothetical FI credit dashboard data, then push so Vercel redeploys.
 #
-# What refreshes automatically (Yahoo Finance via yfinance):
+# What refreshes automatically (public market data via yfinance):
 #   - Market cap, price, assets, equity, net income, revenue trends, ROA/ROE
-#   - Recomputed scorecard / PD / EL / stress using current filing overlay
+#   - Recomputed scorecard / PD / EL / stress using current stylized overlay
 #
-# What does NOT auto-update (must edit after each earnings release):
-#   - data/regulatory_metrics.json (CET1, NPL, LCR, NIM, etc. from filings)
+# What does NOT auto-update (edit as needed):
+#   - data/regulatory_metrics.json (stylized CET1, NPL, LCR, NIM overlay)
 #
 name: Refresh credit dashboard
 
@@ -16,9 +16,9 @@ on:
   workflow_dispatch:
     inputs:
       ticker:
-        description: "Focus ticker (default TD)"
+        description: "Focus display ticker (default HCB)"
         required: false
-        default: "TD"
+        default: "HCB"
         type: string
 
 permissions:
@@ -53,7 +53,7 @@ jobs:
           PYTHONIOENCODING: utf-8
         run: |
           TICKER="${{ github.event.inputs.ticker }}"
-          if [ -z "$TICKER" ]; then TICKER="TD"; fi
+          if [ -z "$TICKER" ]; then TICKER="HCB"; fi
           echo "Refreshing dashboard for $TICKER ..."
           python scripts/export_for_web.py "$TICKER"
 

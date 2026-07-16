@@ -1,25 +1,27 @@
-# TD Bank Financial Institution Credit Risk Dashboard
+# Hypothetical Canadian Bank — FI Credit Risk Dashboard
 
-Corporate banking–style **FI obligor credit risk** analysis for **The Toronto-Dominion Bank (TD)**, with a Python pipeline and a Next.js dashboard for Vercel.
+Corporate banking–style **FI obligor credit risk** analysis for a **hypothetical Canadian bank (HCB)**, with a Python pipeline and a Next.js dashboard for Vercel.
 
 This is **not** a corporate EBITDA / covenant model. Banks are scored on capital, asset quality, liquidity, and earnings.
+
+The obligor and peer set are anonymized for portfolio use. Outputs are illustrative and do **not** represent any named issuer or employer.
 
 ## What It Covers
 
 | Module | Description |
 |--------|-------------|
-| **FI Metrics** | CET1, NPL, NCO, LCR, NIM, ROAA + statement trends from Yahoo Finance |
+| **FI Metrics** | CET1, NPL, NCO, LCR, NIM, ROAA + statement trends from public market data |
 | **Internal Rating** | Weighted FI scorecard → rating → through-the-cycle PD |
 | **Facility EL** | Hypothetical revolver / term loan / SBLC → EAD, LGD, EL |
 | **Stress Testing** | Mild, severe, and funding/deposit shock scenarios |
 | **Early Warning** | Policy thresholds, watchlist, recommended actions |
-| **Peers** | TD vs RY, BNS, BMO, CM (Canadian Big 5) |
+| **Peers** | Focus bank vs anonymized Canadian large-bank peer set |
 
 ## Tech Stack
 
 - **Python 3.10+** — data + credit engine
 - **Next.js 15 + React** — interactive dashboard
-- **yfinance / pandas** — market & statements
+- **yfinance / pandas** — public market & statements (illustration source only)
 - **Recharts** — charts
 - **Vercel** — hosting (repository root)
 
@@ -46,7 +48,7 @@ Open [http://localhost:3000](http://localhost:3000)
 
 See [DEPLOY.md](DEPLOY.md). On Vercel: **Root Directory** = `./`, **Framework** = **Next.js** (not Python).
 
-**Auto-refresh:** GitHub Actions runs weekly (and on demand) to pull latest Yahoo Finance data, rebuild `analysis.json`, and push — Vercel redeploys automatically. After each bank earnings release, update `data/regulatory_metrics.json` (CET1 / NPL / LCR), then re-run the workflow.
+**Auto-refresh:** GitHub Actions runs weekly (and on demand) to pull latest public market data, rebuild `analysis.json`, and push — Vercel redeploys automatically. Update `data/regulatory_metrics.json` when refreshing the stylized regulatory overlay, then re-run the workflow.
 
 ## Project Structure
 
@@ -64,8 +66,8 @@ See [DEPLOY.md](DEPLOY.md). On Vercel: **Root Directory** = `./`, **Framework** 
 
 ## Interview Narrative
 
-> Built an FI credit risk workflow for TD Bank: regulatory capital & asset-quality scorecard, facility-level expected loss, stress scenarios, and early-warning monitoring — deployed as an interactive credit dashboard.
+> Built an FI credit risk workflow for a hypothetical Canadian bank: regulatory capital & asset-quality scorecard, facility-level expected loss, stress scenarios, and early-warning monitoring — deployed as an interactive credit dashboard.
 
 ## Disclaimer
 
-Educational portfolio project. Internal ratings, PDs, LGDs, and facilities are **illustrative** — not official bank models, agency ratings, or actual exposures. Regulatory metrics in `data/regulatory_metrics.json` should be refreshed from filings.
+Educational portfolio project. The obligor is a **hypothetical Canadian bank**. Market & statement figures come from public market data providers for illustration; CET1/NPL/LCR-style ratios are a stylized overlay. Internal ratings, PDs, LGDs, facilities, peer labels, and stress scenarios are **illustrative** — not official bank models, agency ratings, actual exposures, or the views of any employer or financial institution. Not investment or credit advice.

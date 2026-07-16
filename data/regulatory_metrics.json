@@ -1,12 +1,12 @@
 {
-  "_comment": "Regulatory metrics sourced from each bank's Q1 2026 Report to Shareholders / Supplemental Financial Information (period ended 2026-01-31). Refresh after each earnings release.",
+  "_comment": "Stylized regulatory overlay for a hypothetical Canadian large-bank peer set. Calibrated to publicly reported Canadian large-bank ranges for a Q1 2026-style period. Not attributed to any named issuer.",
   "as_of": "2026-01-31",
-  "source": "Company Q1 2026 filings (RTS / SFI / investor presentations)",
-  "provenance": "filing",
+  "source": "Illustrative regulatory overlay (public Canadian large-bank ranges)",
+  "provenance": "illustrative_overlay",
   "banks": {
-    "TD": {
-      "name": "The Toronto-Dominion Bank",
-      "source_note": "TD Q1 2026 Report to Shareholders & Supplemental Financial Information",
+    "HCB": {
+      "name": "Hypothetical Canadian Bank",
+      "source_note": "Illustrative focus-bank overlay — not a named issuer filing",
       "cet1_ratio": 14.5,
       "tier1_ratio": 16.3,
       "total_capital_ratio": 18.1,
@@ -21,11 +21,11 @@
       "roae": 13.6,
       "loan_to_deposit": 77.0,
       "g_sib": true,
-      "peer_group": "Canadian Big 5 / G-SIB"
+      "peer_group": "Hypothetical Canadian large banks"
     },
-    "RY": {
-      "name": "Royal Bank of Canada",
-      "source_note": "RBC Q1 2026 Report to Shareholders",
+    "PB1": {
+      "name": "Peer Bank Alpha",
+      "source_note": "Illustrative peer overlay",
       "cet1_ratio": 13.7,
       "tier1_ratio": 15.2,
       "total_capital_ratio": 16.8,
@@ -40,11 +40,11 @@
       "roae": 17.6,
       "loan_to_deposit": 85.0,
       "g_sib": true,
-      "peer_group": "Canadian Big 5 / G-SIB"
+      "peer_group": "Hypothetical Canadian large banks"
     },
-    "BNS": {
-      "name": "The Bank of Nova Scotia",
-      "source_note": "Scotiabank Q1 2026 Report to Shareholders / Supplementary Financial Information",
+    "PB2": {
+      "name": "Peer Bank Beta",
+      "source_note": "Illustrative peer overlay",
       "cet1_ratio": 13.3,
       "tier1_ratio": 15.4,
       "total_capital_ratio": 17.0,
@@ -59,11 +59,11 @@
       "roae": 11.0,
       "loan_to_deposit": 90.0,
       "g_sib": false,
-      "peer_group": "Canadian Big 5"
+      "peer_group": "Hypothetical Canadian large banks"
     },
-    "BMO": {
-      "name": "Bank of Montreal",
-      "source_note": "BMO Q1 2026 Report to Shareholders",
+    "PB3": {
+      "name": "Peer Bank Gamma",
+      "source_note": "Illustrative peer overlay",
       "cet1_ratio": 13.1,
       "tier1_ratio": 14.8,
       "total_capital_ratio": 16.9,
@@ -78,11 +78,11 @@
       "roae": 10.6,
       "loan_to_deposit": 88.0,
       "g_sib": false,
-      "peer_group": "Canadian Big 5"
+      "peer_group": "Hypothetical Canadian large banks"
     },
-    "CM": {
-      "name": "Canadian Imperial Bank of Commerce",
-      "source_note": "CIBC Q1 2026 Report to Shareholders / Results Presentation",
+    "PB4": {
+      "name": "Peer Bank Delta",
+      "source_note": "Illustrative peer overlay",
       "cet1_ratio": 13.4,
       "tier1_ratio": 15.4,
       "total_capital_ratio": 17.7,
@@ -97,7 +97,7 @@
       "roae": 20.2,
       "loan_to_deposit": 86.0,
       "g_sib": false,
-      "peer_group": "Canadian Big 5"
+      "peer_group": "Hypothetical Canadian large banks"
     }
   }
 }

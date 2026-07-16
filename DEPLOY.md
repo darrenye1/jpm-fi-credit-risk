@@ -17,8 +17,8 @@ Workflow: `.github/workflows/refresh-dashboard.yml`
 |------|----------|
 | Schedule | Every **Monday** ~15:00 UTC |
 | Manual | GitHub → **Actions** → **Refresh credit dashboard** → **Run workflow** |
-| Auto-updates | Yahoo Finance market & statements → recompute rating / EL / stress → commit `analysis.json` → Vercel redeploys |
-| Manual after earnings | Edit `data/regulatory_metrics.json` (CET1, NPL, LCR, …), then run the workflow (or `python scripts/export_for_web.py` locally and push) |
+| Auto-updates | Public market & statements → recompute rating / EL / stress → commit `analysis.json` → Vercel redeploys |
+| Manual overlay refresh | Edit `data/regulatory_metrics.json` (CET1, NPL, LCR, …), then run the workflow (or `python scripts/export_for_web.py` locally and push) |
 
 ### Enable write permission (required once)
 
@@ -29,7 +29,7 @@ GitHub repo → **Settings → Actions → General → Workflow permissions** �
 ```bash
 pip install -r requirements.txt
 python scripts/export_for_web.py
-# optional: python scripts/export_for_web.py TD
+# optional: python scripts/export_for_web.py HCB
 ```
 
 This updates:

@@ -8,7 +8,7 @@ import {
   METRIC_LABELS,
 } from "@/lib/glossary";
 import { Card, KPICard, Section, StatusPill } from "@/components/ui";
-import { Footer, Header, Hero, ProfileBanner } from "@/components/layout";
+import { Footer, Header, Hero, ProfileBanner, DisclaimerBanner } from "@/components/layout";
 import {
   PeerCet1Chart,
   ScoreBreakdownChart,
@@ -47,14 +47,7 @@ export default function HomePage() {
   }));
 
   const peerChart = peers.map((p) => ({
-    ticker:
-      p.ticker === "RY"
-        ? "RBC"
-        : p.ticker === "CM"
-          ? "CIBC"
-          : p.ticker === "BNS"
-            ? "Scotia"
-            : p.ticker,
+    ticker: BANK_SHORT[p.ticker]?.replace("Peer Bank ", "Peer ") ?? p.ticker,
     cet1: p.cet1_ratio,
     focus: p.isFocus,
   }));
@@ -67,6 +60,7 @@ export default function HomePage() {
 
   return (
     <>
+      <DisclaimerBanner disclaimer={meta.disclaimer} />
       <ProfileBanner />
       <Header
         name={metrics.name}
@@ -94,16 +88,15 @@ export default function HomePage() {
                 total assets, equity, net income, revenue trends (pulled via yfinance).
               </p>
               <p>
-                <span className="font-semibold text-bank-green">From filings</span> — CET1, Tier 1,
-                leverage, NPL, NCO, LCR, NIM, efficiency, loan-to-deposit transcribed from each
-                bank&apos;s Q1 2026 Report to Shareholders / supplemental info (not invented demo
-                numbers).
+                <span className="font-semibold text-bank-green">Stylized overlay</span> — CET1, Tier
+                1, leverage, NPL, NCO, LCR, NIM, efficiency, loan-to-deposit calibrated to publicly
+                reported Canadian large-bank ranges (illustrative, not attributed to a named issuer).
               </p>
               <p>
-                <span className="font-semibold text-bank-warn">Illustrative</span> — internal
-                rating, probability of default, hypothetical facilities, expected loss, stress
-                paths, and early-warning policy thresholds. These show credit workflow design, not
-                official bank models or real TD exposures.
+                <span className="font-semibold text-bank-warn">Illustrative</span> — internal rating,
+                probability of default, hypothetical facilities, expected loss, stress paths, peer
+                labels, and early-warning policy thresholds. These show credit workflow design, not
+                official bank models or real exposures of any named institution.
               </p>
             </div>
           </Card>
@@ -160,7 +153,7 @@ export default function HomePage() {
           <Section
             id="capital"
             title="Capital, Asset Quality & Liquidity"
-            subtitle="CET1, NPL, LCR and related ratios from Q1 2026 company filings; statement trends from Yahoo Finance. Not corporate EBITDA leverage."
+            subtitle="CET1, NPL, LCR and related ratios from a stylized regulatory overlay; statement trends from public market data. Not corporate EBITDA leverage."
           >
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <KPICard
@@ -250,8 +243,8 @@ export default function HomePage() {
           >
             <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-bank-warn">
               <span className="font-semibold">Illustrative rating engine.</span> Factor weights and
-              PD mapping are educational. Input ratios above use live market data and company
-              filings; the letter rating and PD are model outputs.
+              PD mapping are educational. Input ratios use public market data and a stylized
+              regulatory overlay; the letter rating and PD are model outputs.
             </div>
             <div className="grid gap-6 lg:grid-cols-5">
               <Card className="lg:col-span-2">
@@ -313,7 +306,7 @@ export default function HomePage() {
           <Section
             id="facility"
             title="Hypothetical Facility Expected Loss"
-            subtitle="Illustrative credit workflow only — not actual TD Bank borrowings or internal IRB parameters."
+            subtitle="Illustrative credit workflow only — not actual borrowings of any named bank or internal IRB parameters."
           >
             <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-bank-warn">
               <span className="font-semibold">Illustrative facilities.</span> Commitment amounts,
@@ -482,8 +475,8 @@ export default function HomePage() {
 
           <Section
             id="peers"
-            title="Canadian Big 5 Comparison"
-            subtitle="Same scorecard on TD, RBC, Scotiabank, BMO, and CIBC. Peer CET1 / NPL / LCR from each bank's Q1 2026 filings; internal ratings remain illustrative."
+            title="Hypothetical Peer Comparison"
+            subtitle="Same scorecard on the focus bank and anonymized Canadian large-bank peers. Overlay ratios are illustrative; internal ratings remain educational."
           >
             <div className="grid gap-6 lg:grid-cols-2">
               <Card>

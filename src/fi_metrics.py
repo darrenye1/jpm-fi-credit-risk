@@ -223,14 +223,15 @@ def build_fi_metrics(data: BankMarketData) -> FICreditMetrics:
     source_note = str(reg.get("source_note", ""))
     notes = [
         "FI credit analysis uses regulatory capital & asset-quality metrics — not corporate EBITDA leverage.",
-        f"Regulatory metrics as of {reg.get('regulatory_as_of', 'n/a')} from {source_label}.",
+        f"Regulatory-style metrics as of {reg.get('regulatory_as_of', 'n/a')} from {source_label}.",
         (
-            f"Focus bank filing note: {source_note}."
+            f"Focus bank note: {source_note}."
             if source_note
-            else "Capital / AQ / LCR taken from each bank's latest quarterly filings."
+            else "Capital / AQ / LCR taken from the stylized regulatory overlay."
         ),
-        "Market cap, assets, equity, net income, and trends from Yahoo Finance (yfinance).",
+        "Market cap, assets, equity, net income, and trends from public market data (yfinance) for illustration.",
         "Internal rating, PD, facility EL, and stress scenarios are illustrative model outputs — not agency ratings or actual exposures.",
+        "Obligor is a hypothetical Canadian bank; outputs do not represent any named issuer or employer.",
     ]
 
     return FICreditMetrics(

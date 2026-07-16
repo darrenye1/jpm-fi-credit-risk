@@ -1,18 +1,18 @@
 {
   "meta": {
-    "ticker": "TD",
-    "name": "The Toronto-Dominion Bank",
+    "ticker": "HCB",
+    "name": "Hypothetical Canadian Bank",
     "framework": "Financial Institution (FI) Obligor Credit Risk",
-    "disclaimer": "Educational portfolio project. Market & statement figures from Yahoo Finance; CET1/NPL/LCR and related ratios from each bank's Q1 2026 filings. Internal ratings, PDs, LGDs, facilities, and stress scenarios are illustrative \u2014 not official bank models, agency ratings, or actual exposures.",
-    "last_refreshed_at": "2026-07-16 14:51 UTC",
-    "auto_refresh": "GitHub Actions refreshes Yahoo Finance market/statement data weekly. Update data/regulatory_metrics.json after each earnings release for CET1/NPL/LCR."
+    "disclaimer": "Educational portfolio project. The obligor is presented as a hypothetical Canadian bank. Market and statement figures are drawn from public market data providers for illustration only; regulatory-style ratios are a stylized overlay calibrated to publicly reported Canadian large-bank ranges. Internal ratings, PDs, LGDs, facilities, peer labels, and stress scenarios are illustrative \u2014 not official bank models, agency ratings, actual exposures, or the views of any employer or financial institution. Not investment or credit advice.",
+    "last_refreshed_at": "2026-07-16 16:43 UTC",
+    "auto_refresh": "GitHub Actions refreshes public market/statement data weekly for illustration. Update data/regulatory_metrics.json to refresh the stylized regulatory overlay."
   },
   "metrics": {
-    "ticker": "TD",
-    "name": "The Toronto-Dominion Bank",
+    "ticker": "HCB",
+    "name": "Hypothetical Canadian Bank",
     "as_of_market": "2026-07-16",
     "regulatory_as_of": "2026-01-31",
-    "market_cap": 205630783488,
+    "market_cap": 204168708096,
     "total_assets": 2094558000000.0,
     "stockholders_equity": 127827000000.0,
     "total_deposits": null,
@@ -37,7 +37,7 @@
     "roae": 11.91,
     "loan_to_deposit": 77.0,
     "g_sib": true,
-    "peer_group": "Canadian Big 5 / G-SIB",
+    "peer_group": "Hypothetical Canadian large banks",
     "annual_trends": [
       {
         "year": 2022,
@@ -74,10 +74,11 @@
     ],
     "notes": [
       "FI credit analysis uses regulatory capital & asset-quality metrics \u2014 not corporate EBITDA leverage.",
-      "Regulatory metrics as of 2026-01-31 from Company Q1 2026 filings (RTS / SFI / investor presentations).",
-      "Focus bank filing note: TD Q1 2026 Report to Shareholders & Supplemental Financial Information.",
-      "Market cap, assets, equity, net income, and trends from Yahoo Finance (yfinance).",
-      "Internal rating, PD, facility EL, and stress scenarios are illustrative model outputs \u2014 not agency ratings or actual exposures."
+      "Regulatory-style metrics as of 2026-01-31 from Illustrative regulatory overlay (public Canadian large-bank ranges).",
+      "Focus bank note: Illustrative focus-bank overlay \u2014 not a named issuer filing.",
+      "Market cap, assets, equity, net income, and trends from public market data (yfinance) for illustration.",
+      "Internal rating, PD, facility EL, and stress scenarios are illustrative model outputs \u2014 not agency ratings or actual exposures.",
+      "Obligor is a hypothetical Canadian bank; outputs do not represent any named issuer or employer."
     ],
     "field_sources": {
       "market_cap": "market",
@@ -105,10 +106,10 @@
       "roae": "market",
       "loan_to_deposit": "filing"
     },
-    "regulatory_source": "TD Q1 2026 Report to Shareholders & Supplemental Financial Information"
+    "regulatory_source": "Illustrative focus-bank overlay \u2014 not a named issuer filing"
   },
   "rating": {
-    "ticker": "TD",
+    "ticker": "HCB",
     "total_score": 81.9,
     "internal_rating": "A",
     "pd_ttc_pct": 0.1,
@@ -192,7 +193,7 @@
     ]
   },
   "portfolio": {
-    "obligor": "TD",
+    "obligor": "HCB",
     "rating": "A",
     "pd_pct": 0.1,
     "facilities": [
@@ -255,10 +256,10 @@
     "total_ead_mm": 597.0,
     "total_el_mm": 0.2687,
     "narrative": [
-      "Hypothetical bank exposure to TD as FI obligor / counterparty.",
+      "Hypothetical bank exposure to HCB as FI obligor / counterparty.",
       "PD from internal rating A (0.10% TTC).",
       "EAD = drawn + undrawn \u00d7 CCF; EL = PD \u00d7 LGD \u00d7 EAD.",
-      "Facilities are illustrative for demo \u2014 not actual TD Bank borrowings."
+      "Facilities are illustrative for demo \u2014 not actual borrowings of any named bank."
     ]
   },
   "stress": [
@@ -384,7 +385,7 @@
     }
   ],
   "earlyWarning": {
-    "ticker": "TD",
+    "ticker": "HCB",
     "watchlist": false,
     "overall_status": "Pass",
     "items": [
@@ -448,13 +449,13 @@
     "recommended_actions": [
       "Maintain routine annual review cycle",
       "Keep existing facility limits; no rating override needed",
-      "Refresh regulatory metrics from next quarterly Report to Shareholders / SFI"
+      "Refresh the stylized regulatory overlay when updating the demo dataset"
     ]
   },
   "peers": [
     {
-      "ticker": "TD",
-      "name": "The Toronto-Dominion Bank",
+      "ticker": "HCB",
+      "name": "Hypothetical Canadian Bank",
       "cet1_ratio": 14.5,
       "npl_ratio": 0.57,
       "lcr": 137,
@@ -466,8 +467,8 @@
       "isFocus": true
     },
     {
-      "ticker": "RY",
-      "name": "Royal Bank of Canada",
+      "ticker": "PB1",
+      "name": "Peer Bank Alpha",
       "cet1_ratio": 13.7,
       "npl_ratio": 0.86,
       "lcr": 124,
@@ -479,8 +480,8 @@
       "isFocus": false
     },
     {
-      "ticker": "BNS",
-      "name": "The Bank of Nova Scotia",
+      "ticker": "PB2",
+      "name": "Peer Bank Beta",
       "cet1_ratio": 13.3,
       "npl_ratio": 0.95,
       "lcr": 122,
@@ -492,8 +493,8 @@
       "isFocus": false
     },
     {
-      "ticker": "BMO",
-      "name": "Bank of Montreal",
+      "ticker": "PB3",
+      "name": "Peer Bank Gamma",
       "cet1_ratio": 13.1,
       "npl_ratio": 1.02,
       "lcr": 126,
@@ -505,8 +506,8 @@
       "isFocus": false
     },
     {
-      "ticker": "CM",
-      "name": "Canadian Imperial Bank of Commerce",
+      "ticker": "PB4",
+      "name": "Peer Bank Delta",
       "cet1_ratio": 13.4,
       "npl_ratio": 0.64,
       "lcr": 133,
@@ -519,8 +520,8 @@
     }
   ],
   "market": {
-    "price": 124.47,
-    "marketCap": 205630783488,
+    "price": 123.585,
+    "marketCap": 204168708096,
     "beta": 0.875,
     "sector": "Financial Services",
     "industry": "Banks - Diversified",

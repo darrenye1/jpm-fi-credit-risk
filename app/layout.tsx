@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "TD Bank FI Credit Risk | Darren Ye",
+  title: "Hypothetical Canadian Bank | FI Credit Risk",
   description:
-    "Financial Institution obligor credit risk analysis for TD Bank — capital, asset quality, internal rating, facility EL, stress testing, and early warning.",
+    "Educational FI obligor credit risk dashboard for a hypothetical Canadian bank — capital, asset quality, illustrative rating, facility EL, stress testing, and early warning.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

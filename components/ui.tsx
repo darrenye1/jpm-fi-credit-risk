@@ -67,7 +67,7 @@ export function KPICard({
     source === "market"
       ? "Live · Yahoo"
       : source === "filing"
-        ? "From filings"
+        ? "Overlay"
         : source === "derived"
           ? "Calculated"
           : source === "model"
