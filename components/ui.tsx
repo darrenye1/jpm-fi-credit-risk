@@ -3,34 +3,27 @@ import clsx from "clsx";
 
 export function Section({
   id,
-  eyebrow,
   title,
   subtitle,
   children,
 }: {
   id: string;
-  eyebrow?: string;
   title: string;
   subtitle?: string;
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-28 py-14 border-t border-line/80">
-      <div className="mb-8 max-w-3xl">
-        {eyebrow && (
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-brass mb-3">
-            {eyebrow}
-          </p>
-        )}
-        <h2 className="font-display text-3xl md:text-4xl text-parchment">{title}</h2>
-        {subtitle && <p className="mt-3 text-muted leading-relaxed">{subtitle}</p>}
+    <section id={id} className="scroll-mt-24 py-16 border-t border-brand-border/50">
+      <div className="mb-8">
+        <h2 className="font-display text-3xl font-bold text-white">{title}</h2>
+        {subtitle && <p className="mt-2 text-brand-muted max-w-2xl">{subtitle}</p>}
       </div>
       {children}
     </section>
   );
 }
 
-export function Panel({
+export function Card({
   children,
   className,
 }: {
@@ -38,39 +31,65 @@ export function Panel({
   className?: string;
 }) {
   return (
-    <div className={clsx("border border-line bg-ink-900/70 p-5 md:p-6", className)}>
+    <div
+      className={clsx(
+        "rounded-2xl border border-brand-border bg-brand-card/60 backdrop-blur-sm p-6",
+        className
+      )}
+    >
       {children}
     </div>
   );
 }
 
-export function KPI({
+export function KPICard({
   label,
   value,
-  hint,
+  change,
+  positive,
 }: {
   label: string;
   value: string;
-  hint?: string;
+  change?: string;
+  positive?: boolean;
 }) {
   return (
-    <Panel>
-      <p className="text-xs font-mono uppercase tracking-wider text-muted">{label}</p>
-      <p className="mt-2 font-display text-2xl md:text-3xl text-parchment">{value}</p>
-      {hint && <p className="mt-2 text-sm text-muted">{hint}</p>}
-    </Panel>
+    <Card>
+      <p className="text-sm text-brand-muted">{label}</p>
+      <p className="mt-2 font-display text-2xl font-bold text-white">{value}</p>
+      {change && (
+        <p
+          className={clsx(
+            "mt-1 text-sm font-medium",
+            positive === true && "text-emerald-400",
+            positive === false && "text-red-400",
+            positive === undefined && "text-brand-muted"
+          )}
+        >
+          {change}
+        </p>
+      )}
+    </Card>
+  );
+}
+
+export function Badge({ children }: { children: ReactNode }) {
+  return (
+    <span className="inline-flex items-center rounded-full bg-brand-accent/15 px-3 py-1 text-xs font-medium text-brand-accent ring-1 ring-brand-accent/30">
+      {children}
+    </span>
   );
 }
 
 export function StatusPill({ status }: { status: string }) {
   const tone =
     status === "Pass" || status === "Stable" || status === "Stable-Positive"
-      ? "bg-sea/20 text-sea-bright border-sea/40"
+      ? "bg-emerald-500/15 text-emerald-300 ring-emerald-400/30"
       : status === "Watch" || status === "Negative"
-        ? "bg-brass/15 text-brass-soft border-brass/40"
-        : "bg-red-500/15 text-red-300 border-red-400/30";
+        ? "bg-amber-500/15 text-amber-300 ring-amber-400/30"
+        : "bg-red-500/15 text-red-300 ring-red-400/30";
   return (
-    <span className={clsx("inline-flex px-2.5 py-0.5 text-xs font-mono border", tone)}>
+    <span className={clsx("inline-flex rounded-full px-3 py-1 text-xs font-medium ring-1", tone)}>
       {status}
     </span>
   );
