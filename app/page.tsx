@@ -58,26 +58,33 @@ export default function HomePage() {
 
         {/* Overview KPIs */}
         <div id="overview" className="mx-auto max-w-7xl px-6 pt-10">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.1em] text-bank-green">
+            Credit decision snapshot
+          </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <KPICard
               label="Internal Rating"
               value={rating.internal_rating}
               change={`Outlook: ${rating.outlook}`}
+              tone="accent"
             />
             <KPICard
               label="Scorecard"
               value={fmtNum(rating.total_score, 1)}
               change="Weighted FI factors / 100"
+              tone="navy"
             />
             <KPICard
               label="TTC PD"
               value={fmtPct(rating.pd_ttc_pct)}
               change="Illustrative mapping"
+              tone="accent"
             />
             <KPICard
               label="Portfolio EL"
               value={fmtMm(portfolio.total_el_mm, 3)}
               change={`EAD ${fmtMm(portfolio.total_ead_mm)}`}
+              tone="accent"
             />
           </div>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -96,13 +103,28 @@ export default function HomePage() {
             subtitle="Regulatory overlay from filings plus statement trends from market data — FI metrics, not corporate EBITDA leverage."
           >
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <KPICard label="CET1" value={fmtPct(metrics.cet1_ratio)} change="Primary capital lens" />
+              <KPICard
+                label="CET1"
+                value={fmtPct(metrics.cet1_ratio)}
+                change="Primary capital lens"
+                tone="accent"
+              />
               <KPICard label="Tier 1" value={fmtPct(metrics.tier1_ratio)} />
               <KPICard label="Leverage Ratio" value={fmtPct(metrics.leverage_ratio)} />
-              <KPICard label="NPL Ratio" value={fmtPct(metrics.npl_ratio)} change="Asset quality" />
+              <KPICard
+                label="NPL Ratio"
+                value={fmtPct(metrics.npl_ratio)}
+                change="Asset quality"
+                tone="navy"
+              />
               <KPICard label="NCO Ratio" value={fmtPct(metrics.nco_ratio)} />
               <KPICard label="Allowance / Loans" value={fmtPct(metrics.allowance_to_loans)} />
-              <KPICard label="LCR" value={fmtPct(metrics.lcr, 0)} change="Liquidity coverage" />
+              <KPICard
+                label="LCR"
+                value={fmtPct(metrics.lcr, 0)}
+                change="Liquidity coverage"
+                tone="accent"
+              />
               <KPICard label="NIM" value={fmtPct(metrics.nim)} />
               <KPICard label="Efficiency" value={fmtPct(metrics.efficiency_ratio)} />
               <KPICard label="ROAA" value={fmtPct(metrics.roaa)} />
@@ -136,7 +158,7 @@ export default function HomePage() {
             <div className="grid gap-6 lg:grid-cols-5">
               <Card className="lg:col-span-2">
                 <p className="text-sm text-bank-muted">Rating outcome</p>
-                <p className="mt-3 font-display text-5xl font-bold text-bank-green">
+                <p className="mt-3 font-display text-5xl font-semibold tracking-tight text-bank-green md:text-6xl">
                   {rating.internal_rating}
                 </p>
                 <p className="mt-2 text-bank-muted">
@@ -199,10 +221,11 @@ export default function HomePage() {
                 label="Total Commitment"
                 value={fmtMm(portfolio.total_commitment_mm, 0)}
               />
-              <KPICard label="Total EAD" value={fmtMm(portfolio.total_ead_mm)} />
+              <KPICard label="Total EAD" value={fmtMm(portfolio.total_ead_mm)} tone="navy" />
               <KPICard
                 label="Total Expected Loss"
                 value={fmtMm(portfolio.total_el_mm, 3)}
+                tone="accent"
               />
             </div>
             <Card className="overflow-x-auto p-0">

@@ -13,10 +13,14 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-24 border-t border-bank-border py-14">
-      <div className="mb-8">
-        <h2 className="font-display text-2xl font-semibold text-bank-ink md:text-3xl">{title}</h2>
-        {subtitle && <p className="mt-2 max-w-2xl text-bank-muted">{subtitle}</p>}
+    <section id={id} className="scroll-mt-24 border-t border-bank-border py-12 md:py-14">
+      <div className="mb-7">
+        <h2 className="font-display text-[1.65rem] font-semibold leading-snug text-bank-ink md:text-[1.85rem]">
+          {title}
+        </h2>
+        {subtitle && (
+          <p className="mt-2 max-w-2xl text-[0.95rem] leading-relaxed text-bank-muted">{subtitle}</p>
+        )}
       </div>
       {children}
     </section>
@@ -47,29 +51,57 @@ export function KPICard({
   value,
   change,
   positive,
+  tone = "default",
 }: {
   label: string;
   value: string;
   change?: string;
   positive?: boolean;
+  /** accent = green highlight; navy = navy soft highlight */
+  tone?: "default" | "accent" | "navy";
 }) {
   return (
-    <Card>
-      <p className="text-xs font-semibold uppercase tracking-wide text-bank-muted">{label}</p>
-      <p className="mt-2 font-display text-2xl font-semibold text-bank-ink">{value}</p>
+    <div
+      className={clsx(
+        "rounded-lg border p-5 shadow-bank",
+        tone === "accent" && "border-bank-green/35 bg-bank-greenSoft",
+        tone === "navy" && "border-bank-navy/20 bg-bank-navySoft",
+        tone === "default" && "border-bank-border bg-bank-card"
+      )}
+    >
+      <p
+        className={clsx(
+          "text-[0.7rem] font-bold uppercase tracking-[0.08em]",
+          tone === "accent" && "text-bank-green",
+          tone === "navy" && "text-bank-navy/70",
+          tone === "default" && "text-bank-muted"
+        )}
+      >
+        {label}
+      </p>
+      <p
+        className={clsx(
+          "mt-2 font-display font-semibold tracking-tight",
+          tone === "accent" && "text-[1.85rem] text-bank-green md:text-[2.05rem]",
+          tone === "navy" && "text-[1.85rem] text-bank-navy md:text-[2.05rem]",
+          tone === "default" && "text-[1.45rem] text-bank-ink md:text-2xl"
+        )}
+      >
+        {value}
+      </p>
       {change && (
         <p
           className={clsx(
-            "mt-1 text-sm",
-            positive === true && "text-bank-green",
-            positive === false && "text-bank-danger",
+            "mt-1.5 text-[0.85rem] leading-snug",
+            positive === true && "font-medium text-bank-green",
+            positive === false && "font-medium text-bank-danger",
             positive === undefined && "text-bank-muted"
           )}
         >
           {change}
         </p>
       )}
-    </Card>
+    </div>
   );
 }
 

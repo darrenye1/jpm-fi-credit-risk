@@ -151,13 +151,12 @@ export function Hero({
             Credit Risk Case Study
           </p>
         </div>
-        <h2 className="max-w-4xl font-display text-3xl font-semibold tracking-tight text-bank-ink md:text-5xl">
+        <h2 className="max-w-3xl font-display text-[1.85rem] font-semibold leading-tight tracking-tight text-bank-ink md:text-[2.35rem]">
           {name}
         </h2>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-bank-muted">
-          Financial Institution obligor credit assessment — CET1 &amp; asset quality scorecard,
-          facility-level expected loss, stress scenarios, and early-warning monitoring. Framed with
-          regulatory bank metrics, not corporate EBITDA covenants.
+        <p className="mt-3 max-w-xl text-[0.98rem] leading-relaxed text-bank-muted">
+          FI obligor credit memo — capital &amp; asset-quality scorecard, facility EL, stress testing,
+          and early-warning monitoring.
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
           {[
