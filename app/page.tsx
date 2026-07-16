@@ -111,14 +111,14 @@ export default function HomePage() {
             </div>
             <div className="mt-6 grid gap-6 lg:grid-cols-2">
               <Card>
-                <h3 className="mb-4 text-lg font-semibold text-white">Revenue & earnings trend</h3>
+                <h3 className="mb-4 text-lg font-semibold text-bank-ink">Revenue & earnings trend</h3>
                 <TrendChart data={trendData} />
               </Card>
               <Card>
-                <h3 className="mb-4 text-lg font-semibold text-white">Method notes</h3>
-                <ul className="space-y-3 text-sm text-brand-muted leading-relaxed">
+                <h3 className="mb-4 text-lg font-semibold text-bank-ink">Method notes</h3>
+                <ul className="space-y-3 text-sm text-bank-muted leading-relaxed">
                   {metrics.notes.map((n) => (
-                    <li key={n} className="border-l-2 border-brand-accent/50 pl-3">
+                    <li key={n} className="border-l-2 border-bank-green/50 pl-3">
                       {n}
                     </li>
                   ))}
@@ -135,22 +135,22 @@ export default function HomePage() {
           >
             <div className="grid gap-6 lg:grid-cols-5">
               <Card className="lg:col-span-2">
-                <p className="text-sm text-brand-muted">Rating outcome</p>
-                <p className="mt-3 font-display text-5xl font-bold text-brand-accent">
+                <p className="text-sm text-bank-muted">Rating outcome</p>
+                <p className="mt-3 font-display text-5xl font-bold text-bank-green">
                   {rating.internal_rating}
                 </p>
-                <p className="mt-2 text-brand-muted">
+                <p className="mt-2 text-bank-muted">
                   Score {fmtNum(rating.total_score, 1)} · PD {fmtPct(rating.pd_ttc_pct)} ·{" "}
                   {rating.outlook}
                 </p>
-                <ul className="mt-6 space-y-2 text-sm text-brand-muted">
+                <ul className="mt-6 space-y-2 text-sm text-bank-muted">
                   {rating.methodology_notes.map((n) => (
                     <li key={n}>• {n}</li>
                   ))}
                 </ul>
               </Card>
               <Card className="lg:col-span-3">
-                <h3 className="mb-4 text-lg font-semibold text-white">
+                <h3 className="mb-4 text-lg font-semibold text-bank-ink">
                   Weighted factor contribution
                 </h3>
                 <ScoreBreakdownChart data={scoreChart} />
@@ -159,7 +159,7 @@ export default function HomePage() {
             <Card className="mt-6 overflow-x-auto p-0">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-brand-border text-left text-brand-muted">
+                  <tr className="border-b border-bank-border text-left text-bank-muted">
                     <th className="px-4 py-3">Factor</th>
                     <th className="px-4 py-3">Category</th>
                     <th className="px-4 py-3">Raw</th>
@@ -170,17 +170,17 @@ export default function HomePage() {
                 </thead>
                 <tbody>
                   {rating.factors.map((f) => (
-                    <tr key={f.name} className="border-b border-brand-border/40">
-                      <td className="px-4 py-3 text-white">{f.name}</td>
-                      <td className="px-4 py-3 text-brand-muted">{f.category}</td>
-                      <td className="px-4 py-3 font-mono text-brand-muted">
+                    <tr key={f.name} className="border-b border-bank-border/40">
+                      <td className="px-4 py-3 text-bank-ink">{f.name}</td>
+                      <td className="px-4 py-3 text-bank-muted">{f.category}</td>
+                      <td className="px-4 py-3 font-mono text-bank-muted">
                         {f.raw_value == null ? "—" : `${f.raw_value}${f.unit}`}
                       </td>
-                      <td className="px-4 py-3 font-mono text-white">{fmtNum(f.score, 1)}</td>
-                      <td className="px-4 py-3 font-mono text-brand-muted">
+                      <td className="px-4 py-3 font-mono text-bank-ink">{fmtNum(f.score, 1)}</td>
+                      <td className="px-4 py-3 font-mono text-bank-muted">
                         {(f.weight * 100).toFixed(0)}%
                       </td>
-                      <td className="px-4 py-3 text-brand-muted max-w-xs">{f.rationale}</td>
+                      <td className="px-4 py-3 text-bank-muted max-w-xs">{f.rationale}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -208,7 +208,7 @@ export default function HomePage() {
             <Card className="overflow-x-auto p-0">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-brand-border text-left text-brand-muted">
+                  <tr className="border-b border-bank-border text-left text-bank-muted">
                     <th className="px-4 py-3">Facility</th>
                     <th className="px-4 py-3">Type</th>
                     <th className="px-4 py-3">Commitment</th>
@@ -221,23 +221,23 @@ export default function HomePage() {
                 </thead>
                 <tbody>
                   {portfolio.facilities.map((row) => (
-                    <tr key={row.facility.name} className="border-b border-brand-border/40">
-                      <td className="px-4 py-3 text-white">{row.facility.name}</td>
-                      <td className="px-4 py-3 text-brand-muted">{row.facility.facility_type}</td>
-                      <td className="px-4 py-3 font-mono text-brand-muted">
+                    <tr key={row.facility.name} className="border-b border-bank-border/40">
+                      <td className="px-4 py-3 text-bank-ink">{row.facility.name}</td>
+                      <td className="px-4 py-3 text-bank-muted">{row.facility.facility_type}</td>
+                      <td className="px-4 py-3 font-mono text-bank-muted">
                         {fmtMm(row.facility.commitment_mm, 0)}
                       </td>
-                      <td className="px-4 py-3 font-mono text-brand-muted">
+                      <td className="px-4 py-3 font-mono text-bank-muted">
                         {fmtMm(row.facility.drawn_mm, 0)}
                       </td>
-                      <td className="px-4 py-3 font-mono text-brand-muted">
+                      <td className="px-4 py-3 font-mono text-bank-muted">
                         {(row.facility.undrawn_ccf * 100).toFixed(0)}%
                       </td>
-                      <td className="px-4 py-3 font-mono text-white">{fmtMm(row.ead_mm)}</td>
-                      <td className="px-4 py-3 font-mono text-brand-muted">
+                      <td className="px-4 py-3 font-mono text-bank-ink">{fmtMm(row.ead_mm)}</td>
+                      <td className="px-4 py-3 font-mono text-bank-muted">
                         {fmtPct(row.lgd_pct, 0)}
                       </td>
-                      <td className="px-4 py-3 font-mono text-brand-accent">
+                      <td className="px-4 py-3 font-mono text-bank-green">
                         {fmtMm(row.el_mm, 3)}
                       </td>
                     </tr>
@@ -245,7 +245,7 @@ export default function HomePage() {
                 </tbody>
               </table>
             </Card>
-            <ul className="mt-4 space-y-1 text-sm text-brand-muted">
+            <ul className="mt-4 space-y-1 text-sm text-bank-muted">
               {portfolio.narrative.map((n) => (
                 <li key={n}>• {n}</li>
               ))}
@@ -260,7 +260,7 @@ export default function HomePage() {
           >
             <div className="grid gap-6 lg:grid-cols-2">
               <Card>
-                <h3 className="mb-4 text-lg font-semibold text-white">EL & PD by scenario</h3>
+                <h3 className="mb-4 text-lg font-semibold text-bank-ink">EL & PD by scenario</h3>
                 <StressElChart data={stressChart} />
               </Card>
               <div className="space-y-3">
@@ -268,20 +268,20 @@ export default function HomePage() {
                   <Card key={s.scenario.id}>
                     <div className="flex items-start justify-between gap-3">
                       <div>
-                        <p className="font-display text-lg font-semibold text-white">
+                        <p className="font-display text-lg font-semibold text-bank-ink">
                           {s.scenario.name}
                         </p>
-                        <p className="mt-1 text-sm text-brand-muted">{s.scenario.description}</p>
+                        <p className="mt-1 text-sm text-bank-muted">{s.scenario.description}</p>
                       </div>
                       <StatusPill status={s.rating} />
                     </div>
-                    <div className="mt-3 flex flex-wrap gap-3 text-xs font-mono text-brand-muted">
+                    <div className="mt-3 flex flex-wrap gap-3 text-xs font-mono text-bank-muted">
                       <span>PD {fmtPct(s.pd_pct)}</span>
                       <span>EL {fmtMm(s.total_el_mm, 3)}</span>
                       <span>ΔEL {fmtMm(s.el_vs_base_mm, 3)}</span>
                       <span>Score {fmtNum(s.score, 1)}</span>
                     </div>
-                    <p className="mt-2 text-xs text-brand-muted">{s.flags[0]}</p>
+                    <p className="mt-2 text-xs text-bank-muted">{s.flags[0]}</p>
                   </Card>
                 ))}
               </div>
@@ -296,14 +296,14 @@ export default function HomePage() {
           >
             <div className="mb-4 flex flex-wrap items-center gap-3">
               <StatusPill status={earlyWarning.overall_status} />
-              <span className="text-sm text-brand-muted">
+              <span className="text-sm text-bank-muted">
                 Watchlist: {earlyWarning.watchlist ? "Yes" : "No"}
               </span>
             </div>
             <Card className="mb-6 overflow-x-auto p-0">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-brand-border text-left text-brand-muted">
+                  <tr className="border-b border-bank-border text-left text-bank-muted">
                     <th className="px-4 py-3">Indicator</th>
                     <th className="px-4 py-3">Threshold</th>
                     <th className="px-4 py-3">Actual</th>
@@ -313,24 +313,24 @@ export default function HomePage() {
                 </thead>
                 <tbody>
                   {earlyWarning.items.map((item) => (
-                    <tr key={item.indicator} className="border-b border-brand-border/40">
-                      <td className="px-4 py-3 text-white">{item.indicator}</td>
-                      <td className="px-4 py-3 text-brand-muted">{item.threshold}</td>
-                      <td className="px-4 py-3 font-mono text-white">{item.actual}</td>
+                    <tr key={item.indicator} className="border-b border-bank-border/40">
+                      <td className="px-4 py-3 text-bank-ink">{item.indicator}</td>
+                      <td className="px-4 py-3 text-bank-muted">{item.threshold}</td>
+                      <td className="px-4 py-3 font-mono text-bank-ink">{item.actual}</td>
                       <td className="px-4 py-3">
                         <StatusPill status={item.status} />
                       </td>
-                      <td className="px-4 py-3 text-brand-muted">{item.comment}</td>
+                      <td className="px-4 py-3 text-bank-muted">{item.comment}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </Card>
             <Card>
-              <h3 className="mb-3 text-lg font-semibold text-white">Recommended actions</h3>
-              <ul className="space-y-2 text-sm text-brand-muted">
+              <h3 className="mb-3 text-lg font-semibold text-bank-ink">Recommended actions</h3>
+              <ul className="space-y-2 text-sm text-bank-muted">
                 {earlyWarning.recommended_actions.map((a) => (
-                  <li key={a} className="border-l-2 border-brand-accent pl-3">
+                  <li key={a} className="border-l-2 border-bank-green pl-3">
                     {a}
                   </li>
                 ))}
@@ -346,13 +346,13 @@ export default function HomePage() {
           >
             <div className="grid gap-6 lg:grid-cols-2">
               <Card>
-                <h3 className="mb-4 text-lg font-semibold text-white">CET1 vs peers</h3>
+                <h3 className="mb-4 text-lg font-semibold text-bank-ink">CET1 vs peers</h3>
                 <PeerCet1Chart data={peerChart} />
               </Card>
               <Card className="overflow-x-auto p-0">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-brand-border text-left text-brand-muted">
+                    <tr className="border-b border-bank-border text-left text-bank-muted">
                       <th className="px-3 py-3">Ticker</th>
                       <th className="px-3 py-3">CET1</th>
                       <th className="px-3 py-3">NPL</th>
@@ -365,27 +365,27 @@ export default function HomePage() {
                     {peers.map((p) => (
                       <tr
                         key={p.ticker}
-                        className={`border-b border-brand-border/40 ${
-                          p.isFocus ? "bg-brand-accent/5" : ""
+                        className={`border-b border-bank-border/40 ${
+                          p.isFocus ? "bg-bank-greenSoft" : ""
                         }`}
                       >
-                        <td className="px-3 py-3 font-mono text-white">
+                        <td className="px-3 py-3 font-mono text-bank-ink">
                           {p.ticker}
                           {p.isFocus ? " ★" : ""}
                         </td>
-                        <td className="px-3 py-3 font-mono text-brand-muted">
+                        <td className="px-3 py-3 font-mono text-bank-muted">
                           {fmtPct(p.cet1_ratio)}
                         </td>
-                        <td className="px-3 py-3 font-mono text-brand-muted">
+                        <td className="px-3 py-3 font-mono text-bank-muted">
                           {fmtPct(p.npl_ratio)}
                         </td>
-                        <td className="px-3 py-3 font-mono text-brand-muted">
+                        <td className="px-3 py-3 font-mono text-bank-muted">
                           {fmtPct(p.lcr, 0)}
                         </td>
-                        <td className="px-3 py-3 font-mono text-brand-muted">
+                        <td className="px-3 py-3 font-mono text-bank-muted">
                           {fmtPct(p.roaa)}
                         </td>
-                        <td className="px-3 py-3 font-mono text-white">{p.internal_rating}</td>
+                        <td className="px-3 py-3 font-mono text-bank-ink">{p.internal_rating}</td>
                       </tr>
                     ))}
                   </tbody>

@@ -15,11 +15,18 @@ import {
 } from "recharts";
 
 const tooltipStyle = {
-  backgroundColor: "#1a1a2e",
-  border: "1px solid #2a2a3e",
-  borderRadius: 12,
-  color: "#fff",
+  backgroundColor: "#FFFFFF",
+  border: "1px solid #D9E2EC",
+  borderRadius: 8,
+  color: "#0C2340",
+  boxShadow: "0 4px 12px rgba(12,35,64,0.08)",
 };
+
+const grid = "#E2E8F0";
+const tick = "#64748B";
+const green = "#007A33";
+const navy = "#0C2340";
+const slate = "#64748B";
 
 export function ScoreBreakdownChart({
   data,
@@ -30,16 +37,16 @@ export function ScoreBreakdownChart({
     <div className="h-72 w-full">
       <ResponsiveContainer>
         <BarChart data={data} layout="vertical" margin={{ left: 24, right: 16 }}>
-          <CartesianGrid stroke="#2a2a3e" strokeDasharray="3 3" horizontal={false} />
-          <XAxis type="number" domain={[0, 30]} tick={{ fill: "#8892a4", fontSize: 12 }} />
+          <CartesianGrid stroke={grid} strokeDasharray="3 3" horizontal={false} />
+          <XAxis type="number" domain={[0, 30]} tick={{ fill: tick, fontSize: 12 }} />
           <YAxis
             type="category"
             dataKey="name"
             width={120}
-            tick={{ fill: "#8892a4", fontSize: 11 }}
+            tick={{ fill: tick, fontSize: 11 }}
           />
           <Tooltip contentStyle={tooltipStyle} />
-          <Bar dataKey="weighted" name="Weighted score" fill="#22d3ee" radius={[0, 6, 6, 0]} />
+          <Bar dataKey="weighted" name="Weighted score" fill={green} radius={[0, 4, 4, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -60,16 +67,16 @@ export function TrendChart({
     <div className="h-72 w-full">
       <ResponsiveContainer>
         <LineChart data={scaled}>
-          <CartesianGrid stroke="#2a2a3e" strokeDasharray="3 3" />
-          <XAxis dataKey="year" tick={{ fill: "#8892a4", fontSize: 12 }} />
-          <YAxis tick={{ fill: "#8892a4", fontSize: 12 }} />
+          <CartesianGrid stroke={grid} strokeDasharray="3 3" />
+          <XAxis dataKey="year" tick={{ fill: tick, fontSize: 12 }} />
+          <YAxis tick={{ fill: tick, fontSize: 12 }} />
           <Tooltip contentStyle={tooltipStyle} />
           <Legend />
           <Line
             type="monotone"
             dataKey="revenueBn"
             name="Revenue ($B)"
-            stroke="#22d3ee"
+            stroke={navy}
             strokeWidth={2}
             dot={false}
           />
@@ -77,7 +84,7 @@ export function TrendChart({
             type="monotone"
             dataKey="netIncomeBn"
             name="Net Income ($B)"
-            stroke="#a78bfa"
+            stroke={green}
             strokeWidth={2}
             dot={false}
           />
@@ -96,13 +103,13 @@ export function StressElChart({
     <div className="h-72 w-full">
       <ResponsiveContainer>
         <BarChart data={data}>
-          <CartesianGrid stroke="#2a2a3e" strokeDasharray="3 3" />
-          <XAxis dataKey="name" tick={{ fill: "#8892a4", fontSize: 11 }} />
-          <YAxis tick={{ fill: "#8892a4", fontSize: 12 }} />
+          <CartesianGrid stroke={grid} strokeDasharray="3 3" />
+          <XAxis dataKey="name" tick={{ fill: tick, fontSize: 11 }} />
+          <YAxis tick={{ fill: tick, fontSize: 12 }} />
           <Tooltip contentStyle={tooltipStyle} />
           <Legend />
-          <Bar dataKey="el" name="EL ($mm)" fill="#22d3ee" radius={[6, 6, 0, 0]} />
-          <Bar dataKey="pd" name="PD (%)" fill="#a78bfa" radius={[6, 6, 0, 0]} />
+          <Bar dataKey="el" name="EL ($mm)" fill={navy} radius={[4, 4, 0, 0]} />
+          <Bar dataKey="pd" name="PD (%)" fill={green} radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -123,13 +130,13 @@ export function PeerCet1Chart({
     <div className="h-64 w-full">
       <ResponsiveContainer>
         <BarChart data={rows}>
-          <CartesianGrid stroke="#2a2a3e" strokeDasharray="3 3" />
-          <XAxis dataKey="ticker" tick={{ fill: "#8892a4", fontSize: 12 }} />
-          <YAxis tick={{ fill: "#8892a4", fontSize: 12 }} unit="%" />
+          <CartesianGrid stroke={grid} strokeDasharray="3 3" />
+          <XAxis dataKey="ticker" tick={{ fill: tick, fontSize: 12 }} />
+          <YAxis tick={{ fill: tick, fontSize: 12 }} unit="%" />
           <Tooltip contentStyle={tooltipStyle} />
-          <Bar dataKey="cet1" name="CET1 %" radius={[6, 6, 0, 0]}>
+          <Bar dataKey="cet1" name="CET1 %" radius={[4, 4, 0, 0]}>
             {rows.map((entry) => (
-              <Cell key={entry.ticker} fill={entry.focus ? "#22d3ee" : "#6366f1"} />
+              <Cell key={entry.ticker} fill={entry.focus ? green : slate} />
             ))}
           </Bar>
         </BarChart>
