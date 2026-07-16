@@ -1,5 +1,12 @@
 import { analysis } from "@/lib/data";
 import { fmtMm, fmtNum, fmtPct, fmtUsd } from "@/lib/format";
+import {
+  BANK_SHORT,
+  FACTOR_LABELS,
+  GLOSSARY,
+  INDICATOR_LABELS,
+  METRIC_LABELS,
+} from "@/lib/glossary";
 import { Card, KPICard, Section, StatusPill } from "@/components/ui";
 import { Footer, Header, Hero, ProfileBanner } from "@/components/layout";
 import {
@@ -13,11 +20,23 @@ export default function HomePage() {
   const { meta, metrics, rating, portfolio, stress, earlyWarning, peers, market } =
     analysis;
 
-  const scoreChart = rating.factors.map((f) => ({
-    name: f.name.replace(" Ratio", ""),
-    weighted: f.weighted,
-    score: f.score,
-  }));
+  // Short axis labels for chart readability; tables use full names.
+  const scoreChart = rating.factors.map((f) => {
+    const full = FACTOR_LABELS[f.name] ?? f.name;
+    const short =
+      full === "Common Equity Tier 1 Ratio"
+        ? "Common Equity Tier 1"
+        : full === "Liquidity Coverage Ratio"
+          ? "Liquidity Coverage"
+          : full === "Return on Average Assets"
+            ? "Return on Assets"
+            : full === "Non-Performing Loan Ratio"
+              ? "Non-Performing Loans"
+              : full === "Net Charge-Off Ratio"
+                ? "Net Charge-Offs"
+                : full.replace(" Ratio", "");
+    return { name: short, weighted: f.weighted, score: f.score };
+  });
 
   const stressChart = stress.map((s) => ({
     name: s.scenario.name
@@ -28,7 +47,14 @@ export default function HomePage() {
   }));
 
   const peerChart = peers.map((p) => ({
-    ticker: p.ticker,
+    ticker:
+      p.ticker === "RY"
+        ? "RBC"
+        : p.ticker === "CM"
+          ? "CIBC"
+          : p.ticker === "BNS"
+            ? "Scotia"
+            : p.ticker,
     cet1: p.cet1_ratio,
     focus: p.isFocus,
   }));
@@ -56,7 +82,6 @@ export default function HomePage() {
           marketAsOf={metrics.as_of_market}
         />
 
-        {/* Overview KPIs */}
         <div id="overview" className="mx-auto max-w-7xl px-6 pt-10">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.1em] text-bank-green">
             Credit decision snapshot
@@ -71,19 +96,19 @@ export default function HomePage() {
             <KPICard
               label="Scorecard"
               value={fmtNum(rating.total_score, 1)}
-              change="Weighted FI factors / 100"
+              change="Weighted bank factors / 100"
               tone="navy"
             />
             <KPICard
-              label="TTC PD"
+              label="Probability of Default"
               value={fmtPct(rating.pd_ttc_pct)}
-              change="Illustrative mapping"
+              change="Through-the-cycle estimate"
               tone="accent"
             />
             <KPICard
-              label="Portfolio EL"
+              label="Expected Loss"
               value={fmtMm(portfolio.total_el_mm, 3)}
-              change={`EAD ${fmtMm(portfolio.total_ead_mm)}`}
+              change={`Exposure at Default ${fmtMm(portfolio.total_ead_mm)}`}
               tone="accent"
             />
           </div>
@@ -96,40 +121,39 @@ export default function HomePage() {
         </div>
 
         <div className="mx-auto max-w-7xl px-6">
-          {/* Capital & AQ */}
           <Section
             id="capital"
             title="Capital, Asset Quality & Liquidity"
-            subtitle="Regulatory overlay from filings plus statement trends from market data — FI metrics, not corporate EBITDA leverage."
+            subtitle="Regulatory overlay from filings plus statement trends from market data — bank metrics, not corporate EBITDA leverage."
           >
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <KPICard
-                label="CET1"
+                label={METRIC_LABELS.cet1}
                 value={fmtPct(metrics.cet1_ratio)}
                 change="Primary capital lens"
                 tone="accent"
               />
-              <KPICard label="Tier 1" value={fmtPct(metrics.tier1_ratio)} />
-              <KPICard label="Leverage Ratio" value={fmtPct(metrics.leverage_ratio)} />
+              <KPICard label={METRIC_LABELS.tier1} value={fmtPct(metrics.tier1_ratio)} />
+              <KPICard label={METRIC_LABELS.leverage} value={fmtPct(metrics.leverage_ratio)} />
               <KPICard
-                label="NPL Ratio"
+                label={METRIC_LABELS.npl}
                 value={fmtPct(metrics.npl_ratio)}
                 change="Asset quality"
                 tone="navy"
               />
-              <KPICard label="NCO Ratio" value={fmtPct(metrics.nco_ratio)} />
-              <KPICard label="Allowance / Loans" value={fmtPct(metrics.allowance_to_loans)} />
+              <KPICard label={METRIC_LABELS.nco} value={fmtPct(metrics.nco_ratio)} />
+              <KPICard label={METRIC_LABELS.allowance} value={fmtPct(metrics.allowance_to_loans)} />
               <KPICard
-                label="LCR"
+                label={METRIC_LABELS.lcr}
                 value={fmtPct(metrics.lcr, 0)}
                 change="Liquidity coverage"
                 tone="accent"
               />
-              <KPICard label="NIM" value={fmtPct(metrics.nim)} />
-              <KPICard label="Efficiency" value={fmtPct(metrics.efficiency_ratio)} />
-              <KPICard label="ROAA" value={fmtPct(metrics.roaa)} />
-              <KPICard label="ROAE" value={fmtPct(metrics.roae)} />
-              <KPICard label="Loan / Deposit" value={fmtPct(metrics.loan_to_deposit, 0)} />
+              <KPICard label={METRIC_LABELS.nim} value={fmtPct(metrics.nim)} />
+              <KPICard label={METRIC_LABELS.efficiency} value={fmtPct(metrics.efficiency_ratio)} />
+              <KPICard label={METRIC_LABELS.roaa} value={fmtPct(metrics.roaa)} />
+              <KPICard label={METRIC_LABELS.roae} value={fmtPct(metrics.roae)} />
+              <KPICard label={METRIC_LABELS.ltd} value={fmtPct(metrics.loan_to_deposit, 0)} />
             </div>
             <div className="mt-6 grid gap-6 lg:grid-cols-2">
               <Card>
@@ -138,7 +162,7 @@ export default function HomePage() {
               </Card>
               <Card>
                 <h3 className="mb-4 text-lg font-semibold text-bank-ink">Method notes</h3>
-                <ul className="space-y-3 text-sm text-bank-muted leading-relaxed">
+                <ul className="space-y-3 text-sm leading-relaxed text-bank-muted">
                   {metrics.notes.map((n) => (
                     <li key={n} className="border-l-2 border-bank-green/50 pl-3">
                       {n}
@@ -149,11 +173,10 @@ export default function HomePage() {
             </div>
           </Section>
 
-          {/* Rating */}
           <Section
             id="rating"
-            title="Internal FI Rating Model"
-            subtitle="Capital, asset quality, liquidity, and earnings — weighted expert scorecard mapped to through-the-cycle PD."
+            title="Internal Bank Rating Model"
+            subtitle="Capital, asset quality, liquidity, and earnings — weighted expert scorecard mapped to through-the-cycle probability of default."
           >
             <div className="grid gap-6 lg:grid-cols-5">
               <Card className="lg:col-span-2">
@@ -162,8 +185,8 @@ export default function HomePage() {
                   {rating.internal_rating}
                 </p>
                 <p className="mt-2 text-bank-muted">
-                  Score {fmtNum(rating.total_score, 1)} · PD {fmtPct(rating.pd_ttc_pct)} ·{" "}
-                  {rating.outlook}
+                  Score {fmtNum(rating.total_score, 1)} · Probability of Default{" "}
+                  {fmtPct(rating.pd_ttc_pct)} · {rating.outlook}
                 </p>
                 <ul className="mt-6 space-y-2 text-sm text-bank-muted">
                   {rating.methodology_notes.map((n) => (
@@ -193,7 +216,9 @@ export default function HomePage() {
                 <tbody>
                   {rating.factors.map((f) => (
                     <tr key={f.name} className="border-b border-bank-border/40">
-                      <td className="px-4 py-3 text-bank-ink">{f.name}</td>
+                      <td className="px-4 py-3 text-bank-ink">
+                        {FACTOR_LABELS[f.name] ?? f.name}
+                      </td>
                       <td className="px-4 py-3 text-bank-muted">{f.category}</td>
                       <td className="px-4 py-3 font-mono text-bank-muted">
                         {f.raw_value == null ? "—" : `${f.raw_value}${f.unit}`}
@@ -202,7 +227,7 @@ export default function HomePage() {
                       <td className="px-4 py-3 font-mono text-bank-muted">
                         {(f.weight * 100).toFixed(0)}%
                       </td>
-                      <td className="px-4 py-3 text-bank-muted max-w-xs">{f.rationale}</td>
+                      <td className="max-w-xs px-4 py-3 text-bank-muted">{f.rationale}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -210,18 +235,18 @@ export default function HomePage() {
             </Card>
           </Section>
 
-          {/* Facility EL */}
           <Section
             id="facility"
-            title="Hypothetical Facility EL"
-            subtitle="EL = PD × LGD × EAD. Facilities illustrate a corporate-banking hold to an FI obligor — not actual TD Bank debt."
+            title="Hypothetical Facility Expected Loss"
+            subtitle="Expected Loss = Probability of Default × Loss Given Default × Exposure at Default. Facilities illustrate a corporate-banking hold to a bank obligor — not actual TD Bank debt."
           >
             <div className="mb-6 grid gap-4 sm:grid-cols-3">
+              <KPICard label="Total Commitment" value={fmtMm(portfolio.total_commitment_mm, 0)} />
               <KPICard
-                label="Total Commitment"
-                value={fmtMm(portfolio.total_commitment_mm, 0)}
+                label="Total Exposure at Default"
+                value={fmtMm(portfolio.total_ead_mm)}
+                tone="navy"
               />
-              <KPICard label="Total EAD" value={fmtMm(portfolio.total_ead_mm)} tone="navy" />
               <KPICard
                 label="Total Expected Loss"
                 value={fmtMm(portfolio.total_el_mm, 3)}
@@ -236,10 +261,10 @@ export default function HomePage() {
                     <th className="px-4 py-3">Type</th>
                     <th className="px-4 py-3">Commitment</th>
                     <th className="px-4 py-3">Drawn</th>
-                    <th className="px-4 py-3">CCF</th>
-                    <th className="px-4 py-3">EAD</th>
-                    <th className="px-4 py-3">LGD</th>
-                    <th className="px-4 py-3">EL</th>
+                    <th className="px-4 py-3">Credit Conversion Factor</th>
+                    <th className="px-4 py-3">Exposure at Default</th>
+                    <th className="px-4 py-3">Loss Given Default</th>
+                    <th className="px-4 py-3">Expected Loss</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -275,15 +300,16 @@ export default function HomePage() {
             </ul>
           </Section>
 
-          {/* Stress */}
           <Section
             id="stress"
             title="Stress Testing"
-            subtitle="Shocks to CET1, NPL/NCO, LCR, and earnings; PD multiplier overlays cycle severity."
+            subtitle="Shocks to capital, asset quality, liquidity, and earnings; probability-of-default multipliers overlay cycle severity."
           >
             <div className="grid gap-6 lg:grid-cols-2">
               <Card>
-                <h3 className="mb-4 text-lg font-semibold text-bank-ink">EL & PD by scenario</h3>
+                <h3 className="mb-4 text-lg font-semibold text-bank-ink">
+                  Expected Loss & Probability of Default by scenario
+                </h3>
                 <StressElChart data={stressChart} />
               </Card>
               <div className="space-y-3">
@@ -298,10 +324,10 @@ export default function HomePage() {
                       </div>
                       <StatusPill status={s.rating} />
                     </div>
-                    <div className="mt-3 flex flex-wrap gap-3 text-xs font-mono text-bank-muted">
-                      <span>PD {fmtPct(s.pd_pct)}</span>
-                      <span>EL {fmtMm(s.total_el_mm, 3)}</span>
-                      <span>ΔEL {fmtMm(s.el_vs_base_mm, 3)}</span>
+                    <div className="mt-3 flex flex-wrap gap-3 text-xs text-bank-muted">
+                      <span>Probability of Default {fmtPct(s.pd_pct)}</span>
+                      <span>Expected Loss {fmtMm(s.total_el_mm, 3)}</span>
+                      <span>Δ Expected Loss {fmtMm(s.el_vs_base_mm, 3)}</span>
                       <span>Score {fmtNum(s.score, 1)}</span>
                     </div>
                     <p className="mt-2 text-xs text-bank-muted">{s.flags[0]}</p>
@@ -311,11 +337,10 @@ export default function HomePage() {
             </div>
           </Section>
 
-          {/* Early warning */}
           <Section
             id="ews"
             title="Early Warning & Watchlist"
-            subtitle="Policy-style thresholds for capital, AQ, liquidity, earnings, and rating floor."
+            subtitle="Policy-style thresholds for capital, asset quality, liquidity, earnings, and rating floor."
           >
             <div className="mb-4 flex flex-wrap items-center gap-3">
               <StatusPill status={earlyWarning.overall_status} />
@@ -337,7 +362,9 @@ export default function HomePage() {
                 <tbody>
                   {earlyWarning.items.map((item) => (
                     <tr key={item.indicator} className="border-b border-bank-border/40">
-                      <td className="px-4 py-3 text-bank-ink">{item.indicator}</td>
+                      <td className="px-4 py-3 text-bank-ink">
+                        {INDICATOR_LABELS[item.indicator] ?? item.indicator}
+                      </td>
                       <td className="px-4 py-3 text-bank-muted">{item.threshold}</td>
                       <td className="px-4 py-3 font-mono text-bank-ink">{item.actual}</td>
                       <td className="px-4 py-3">
@@ -361,26 +388,27 @@ export default function HomePage() {
             </Card>
           </Section>
 
-          {/* Peers */}
           <Section
             id="peers"
             title="Canadian Big 5 Comparison"
-            subtitle="Same FI scorecard applied to TD, RY, BNS, BMO, and CM for relative positioning."
+            subtitle="Same bank scorecard applied to TD Bank, Royal Bank of Canada, Bank of Nova Scotia, Bank of Montreal, and Canadian Imperial Bank of Commerce."
           >
             <div className="grid gap-6 lg:grid-cols-2">
               <Card>
-                <h3 className="mb-4 text-lg font-semibold text-bank-ink">CET1 vs peers</h3>
+                <h3 className="mb-4 text-lg font-semibold text-bank-ink">
+                  Common Equity Tier 1 Ratio vs peers
+                </h3>
                 <PeerCet1Chart data={peerChart} />
               </Card>
               <Card className="overflow-x-auto p-0">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-bank-border text-left text-bank-muted">
-                      <th className="px-3 py-3">Ticker</th>
-                      <th className="px-3 py-3">CET1</th>
-                      <th className="px-3 py-3">NPL</th>
-                      <th className="px-3 py-3">LCR</th>
-                      <th className="px-3 py-3">ROAA</th>
+                      <th className="px-3 py-3">Bank</th>
+                      <th className="px-3 py-3">Common Equity Tier 1</th>
+                      <th className="px-3 py-3">Non-Performing Loans</th>
+                      <th className="px-3 py-3">Liquidity Coverage</th>
+                      <th className="px-3 py-3">Return on Assets</th>
                       <th className="px-3 py-3">Rating</th>
                     </tr>
                   </thead>
@@ -392,9 +420,10 @@ export default function HomePage() {
                           p.isFocus ? "bg-bank-greenSoft" : ""
                         }`}
                       >
-                        <td className="px-3 py-3 font-mono text-bank-ink">
-                          {p.ticker}
+                        <td className="px-3 py-3 text-bank-ink">
+                          <span className="font-medium">{BANK_SHORT[p.ticker] ?? p.name}</span>
                           {p.isFocus ? " ★" : ""}
+                          <span className="mt-0.5 block text-xs text-bank-muted">{p.ticker}</span>
                         </td>
                         <td className="px-3 py-3 font-mono text-bank-muted">
                           {fmtPct(p.cet1_ratio)}
@@ -414,6 +443,23 @@ export default function HomePage() {
                   </tbody>
                 </table>
               </Card>
+            </div>
+          </Section>
+
+          <Section
+            id="glossary"
+            title="Metric Definitions"
+            subtitle="Short definitions of the bank credit metrics used in this memo."
+          >
+            <div className="grid gap-3 md:grid-cols-2">
+              {GLOSSARY.map((item) => (
+                <Card key={item.term} className="p-4">
+                  <p className="font-semibold text-bank-ink">{item.term}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-bank-muted">
+                    {item.definition}
+                  </p>
+                </Card>
+              ))}
             </div>
           </Section>
         </div>

@@ -1,6 +1,7 @@
 import {
   Activity,
   AlertTriangle,
+  BookOpen,
   Building2,
   Github,
   Layers,
@@ -14,12 +15,13 @@ import { Badge, StatusPill } from "./ui";
 
 const links = [
   { href: "#overview", label: "Overview", icon: Activity },
-  { href: "#capital", label: "Capital & AQ", icon: Building2 },
+  { href: "#capital", label: "Capital", icon: Building2 },
   { href: "#rating", label: "Rating", icon: Shield },
-  { href: "#facility", label: "Facility EL", icon: Layers },
+  { href: "#facility", label: "Expected Loss", icon: Layers },
   { href: "#stress", label: "Stress", icon: AlertTriangle },
   { href: "#ews", label: "Early Warning", icon: AlertTriangle },
   { href: "#peers", label: "Peers", icon: Users },
+  { href: "#glossary", label: "Definitions", icon: BookOpen },
 ];
 
 export function ProfileBanner() {

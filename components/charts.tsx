@@ -108,8 +108,8 @@ export function StressElChart({
           <YAxis tick={{ fill: tick, fontSize: 12 }} />
           <Tooltip contentStyle={tooltipStyle} />
           <Legend />
-          <Bar dataKey="el" name="EL ($mm)" fill={navy} radius={[4, 4, 0, 0]} />
-          <Bar dataKey="pd" name="PD (%)" fill={green} radius={[4, 4, 0, 0]} />
+          <Bar dataKey="el" name="Expected Loss ($mm)" fill={navy} radius={[4, 4, 0, 0]} />
+          <Bar dataKey="pd" name="Probability of Default (%)" fill={green} radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -134,7 +134,7 @@ export function PeerCet1Chart({
           <XAxis dataKey="ticker" tick={{ fill: tick, fontSize: 12 }} />
           <YAxis tick={{ fill: tick, fontSize: 12 }} unit="%" />
           <Tooltip contentStyle={tooltipStyle} />
-          <Bar dataKey="cet1" name="CET1 %" radius={[4, 4, 0, 0]}>
+          <Bar dataKey="cet1" name="Common Equity Tier 1 %" radius={[4, 4, 0, 0]}>
             {rows.map((entry) => (
               <Cell key={entry.ticker} fill={entry.focus ? green : slate} />
             ))}
