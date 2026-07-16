@@ -21,7 +21,7 @@ This is **not** a corporate EBITDA / covenant model. Banks are scored on capital
 - **Next.js 15 + React** — interactive dashboard
 - **yfinance / pandas** — market & statements
 - **Recharts** — charts
-- **Vercel** — hosting (`web/` root)
+- **Vercel** — hosting (repository root)
 
 ## Quick Start
 
@@ -36,7 +36,6 @@ python main.py
 
 ```bash
 python scripts/export_for_web.py
-cd web
 npm install
 npm run dev
 ```
@@ -45,24 +44,20 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ### Deploy
 
-See [web/DEPLOY.md](web/DEPLOY.md). Set Vercel **Root Directory** = `web`.
+See [DEPLOY.md](DEPLOY.md). On Vercel: **Root Directory** = `./`, **Framework** = **Next.js** (not Python).
 
 ## Project Structure
 
 ```
 ├── main.py
-├── data/regulatory_metrics.json   # CET1 / NPL / LCR overlay (update after earnings)
+├── data/                  # regulatory overlay + analysis.json for dashboard
 ├── scripts/export_for_web.py
-├── src/
-│   ├── data_fetcher.py
-│   ├── fi_metrics.py
-│   ├── rating_model.py
-│   ├── facility_risk.py
-│   ├── stress.py
-│   ├── early_warning.py
-│   └── peers.py
+├── src/                   # Python FI credit engine
 ├── outputs/reports/
-└── web/                           # Next.js app (Vercel)
+├── app/                   # Next.js pages
+├── components/
+├── lib/
+└── public/
 ```
 
 ## Interview Narrative

@@ -26,8 +26,8 @@ def export(ticker: str = "JPM") -> Path:
     payload = _round_floats(run(ticker))
 
     targets = [
-        ROOT / "web" / "public" / "data" / "analysis.json",
-        ROOT / "web" / "data" / "analysis.json",
+        ROOT / "public" / "data" / "analysis.json",
+        ROOT / "data" / "analysis.json",
     ]
     for path in targets:
         path.parent.mkdir(parents=True, exist_ok=True)
