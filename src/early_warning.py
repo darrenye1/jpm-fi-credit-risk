@@ -164,7 +164,7 @@ def build_early_warning(m: FICreditMetrics, rating: ObligorRating) -> EarlyWarni
         actions = [
             "Maintain routine annual review cycle",
             "Keep existing facility limits; no rating override needed",
-            "Refresh regulatory overlay after next 10-Q / earnings",
+            "Refresh regulatory metrics from next quarterly Report to Shareholders / SFI",
         ]
     elif overall == "Watch":
         actions = [

@@ -3,14 +3,14 @@
     "ticker": "TD",
     "name": "The Toronto-Dominion Bank",
     "framework": "Financial Institution (FI) Obligor Credit Risk",
-    "disclaimer": "Educational portfolio project. Internal ratings, PDs, LGDs, and facilities are illustrative \u2014 not official bank models, agency ratings, or actual exposures."
+    "disclaimer": "Educational portfolio project. Market & statement figures from Yahoo Finance; CET1/NPL/LCR and related ratios from each bank's Q1 2026 filings. Internal ratings, PDs, LGDs, facilities, and stress scenarios are illustrative \u2014 not official bank models, agency ratings, or actual exposures."
   },
   "metrics": {
     "ticker": "TD",
     "name": "The Toronto-Dominion Bank",
-    "as_of_market": "2026-07-15",
-    "regulatory_as_of": "2025-10-31",
-    "market_cap": 206175961088,
+    "as_of_market": "2026-07-16",
+    "regulatory_as_of": "2026-01-31",
+    "market_cap": 205581221888,
     "total_assets": 2094558000000.0,
     "stockholders_equity": 127827000000.0,
     "total_deposits": null,
@@ -21,19 +21,19 @@
     "asset_growth_yoy": 1.5912,
     "ni_growth_yoy": 132.2778,
     "provision_to_revenue": null,
-    "cet1_ratio": 13.4,
-    "tier1_ratio": 14.8,
-    "total_capital_ratio": 16.9,
-    "leverage_ratio": 4.4,
-    "lcr": 128,
-    "npl_ratio": 0.55,
+    "cet1_ratio": 14.5,
+    "tier1_ratio": 16.3,
+    "total_capital_ratio": 18.1,
+    "leverage_ratio": 4.5,
+    "lcr": 137,
+    "npl_ratio": 0.57,
     "nco_ratio": 0.42,
-    "allowance_to_loans": 0.95,
-    "nim": 1.95,
-    "efficiency_ratio": 56.5,
+    "allowance_to_loans": 0.98,
+    "nim": 1.85,
+    "efficiency_ratio": 52.8,
     "roaa": 0.72,
-    "roae": 12.8,
-    "loan_to_deposit": 92.0,
+    "roae": 11.91,
+    "loan_to_deposit": 77.0,
     "g_sib": true,
     "peer_group": "Canadian Big 5 / G-SIB",
     "annual_trends": [
@@ -72,13 +72,42 @@
     ],
     "notes": [
       "FI credit analysis uses regulatory capital & asset-quality metrics \u2014 not corporate EBITDA leverage.",
-      "Regulatory overlay as of 2025-10-31 (Company filings / investor presentations (illustrative for portfolio demo)).",
-      "Market statements from Yahoo Finance; CET1/NPL/NIM from curated filing-based overlay."
-    ]
+      "Regulatory metrics as of 2026-01-31 from Company Q1 2026 filings (RTS / SFI / investor presentations).",
+      "Focus bank filing note: TD Q1 2026 Report to Shareholders & Supplemental Financial Information.",
+      "Market cap, assets, equity, net income, and trends from Yahoo Finance (yfinance).",
+      "Internal rating, PD, facility EL, and stress scenarios are illustrative model outputs \u2014 not agency ratings or actual exposures."
+    ],
+    "field_sources": {
+      "market_cap": "market",
+      "total_assets": "market",
+      "stockholders_equity": "market",
+      "total_deposits": "market",
+      "net_income": "market",
+      "revenue": "market",
+      "equity_to_assets": "derived",
+      "roe_reported": "derived",
+      "asset_growth_yoy": "derived",
+      "ni_growth_yoy": "derived",
+      "provision_to_revenue": "derived",
+      "cet1_ratio": "filing",
+      "tier1_ratio": "filing",
+      "total_capital_ratio": "filing",
+      "leverage_ratio": "filing",
+      "lcr": "filing",
+      "npl_ratio": "filing",
+      "nco_ratio": "filing",
+      "allowance_to_loans": "filing",
+      "nim": "filing",
+      "efficiency_ratio": "filing",
+      "roaa": "market",
+      "roae": "market",
+      "loan_to_deposit": "filing"
+    },
+    "regulatory_source": "TD Q1 2026 Report to Shareholders & Supplemental Financial Information"
   },
   "rating": {
     "ticker": "TD",
-    "total_score": 80.7,
+    "total_score": 81.9,
     "internal_rating": "A",
     "pd_ttc_pct": 0.1,
     "outlook": "Stable",
@@ -86,7 +115,7 @@
       {
         "name": "CET1 Ratio",
         "category": "Capital",
-        "raw_value": 13.4,
+        "raw_value": 14.5,
         "unit": "%",
         "score": 85.0,
         "weight": 0.25,
@@ -96,17 +125,17 @@
       {
         "name": "Leverage Ratio",
         "category": "Capital",
-        "raw_value": 4.4,
+        "raw_value": 4.5,
         "unit": "%",
-        "score": 70.0,
+        "score": 82.0,
         "weight": 0.1,
-        "weighted": 7.0,
-        "rationale": "Adequate leverage ratio"
+        "weighted": 8.2,
+        "rationale": "Solid leverage vs Canadian / Basel floors"
       },
       {
         "name": "NPL Ratio",
         "category": "Asset Quality",
-        "raw_value": 0.55,
+        "raw_value": 0.57,
         "unit": "%",
         "score": 92.0,
         "weight": 0.18,
@@ -126,7 +155,7 @@
       {
         "name": "LCR",
         "category": "Liquidity",
-        "raw_value": 128,
+        "raw_value": 137,
         "unit": "%",
         "score": 90.0,
         "weight": 0.15,
@@ -146,7 +175,7 @@
       {
         "name": "Efficiency Ratio",
         "category": "Earnings",
-        "raw_value": 56.5,
+        "raw_value": 52.8,
         "unit": "%",
         "score": 80.0,
         "weight": 0.1,
@@ -245,15 +274,15 @@
         "pd_multiplier": 1.0
       },
       "stressed_metrics": {
-        "cet1_ratio": 13.4,
-        "npl_ratio": 0.55,
+        "cet1_ratio": 14.5,
+        "npl_ratio": 0.57,
         "nco_ratio": 0.42,
-        "lcr": 128.0,
+        "lcr": 137.0,
         "roaa": 0.72,
-        "efficiency_ratio": 56.5
+        "efficiency_ratio": 52.8
       },
       "rating": "A",
-      "score": 80.7,
+      "score": 81.9,
       "pd_pct": 0.1,
       "total_el_mm": 0.2687,
       "el_vs_base_mm": 0.0,
@@ -275,18 +304,18 @@
         "pd_multiplier": 1.5
       },
       "stressed_metrics": {
-        "cet1_ratio": 12.6,
-        "npl_ratio": 0.9,
+        "cet1_ratio": 13.7,
+        "npl_ratio": 0.92,
         "nco_ratio": 0.67,
-        "lcr": 123,
+        "lcr": 132,
         "roaa": 0.47,
-        "efficiency_ratio": 59.5
+        "efficiency_ratio": 55.8
       },
-      "rating": "BBB+",
-      "score": 70.6,
-      "pd_pct": 0.375,
-      "total_el_mm": 1.0075,
-      "el_vs_base_mm": 0.7388,
+      "rating": "A",
+      "score": 74.7,
+      "pd_pct": 0.15,
+      "total_el_mm": 0.403,
+      "el_vs_base_mm": 0.1343,
       "flags": [
         "No hard limit breach under this scenario"
       ]
@@ -305,22 +334,20 @@
         "pd_multiplier": 3.0
       },
       "stressed_metrics": {
-        "cet1_ratio": 10.9,
-        "npl_ratio": 1.75,
+        "cet1_ratio": 12.0,
+        "npl_ratio": 1.77,
         "nco_ratio": 1.32,
-        "lcr": 113,
+        "lcr": 122,
         "roaa": 0.02,
-        "efficiency_ratio": 64.5
+        "efficiency_ratio": 60.8
       },
-      "rating": "BB+",
-      "score": 54.8,
-      "pd_pct": 3.0,
-      "total_el_mm": 8.0595,
-      "el_vs_base_mm": 7.7908,
+      "rating": "BBB-",
+      "score": 61.2,
+      "pd_pct": 1.8,
+      "total_el_mm": 4.8357,
+      "el_vs_base_mm": 4.567,
       "flags": [
-        "CET1 below internal early-warning threshold (11.5%)",
-        "NPL above watchlist threshold (1.5%)",
-        "Internal rating migrated to BB+"
+        "NPL above watchlist threshold (1.5%)"
       ]
     },
     {
@@ -337,20 +364,20 @@
         "pd_multiplier": 2.0
       },
       "stressed_metrics": {
-        "cet1_ratio": 12.9,
-        "npl_ratio": 0.75,
+        "cet1_ratio": 14.0,
+        "npl_ratio": 0.77,
         "nco_ratio": 0.52,
-        "lcr": 103,
+        "lcr": 112,
         "roaa": 0.32,
-        "efficiency_ratio": 60.5
+        "efficiency_ratio": 56.8
       },
-      "rating": "BBB",
-      "score": 66.1,
-      "pd_pct": 0.8,
-      "total_el_mm": 2.1492,
-      "el_vs_base_mm": 1.8805,
+      "rating": "A",
+      "score": 75.9,
+      "pd_pct": 0.2,
+      "total_el_mm": 0.5373,
+      "el_vs_base_mm": 0.2686,
       "flags": [
-        "LCR buffer thin (<105%)"
+        "No hard limit breach under this scenario"
       ]
     }
   ],
@@ -362,7 +389,7 @@
       {
         "indicator": "CET1 Ratio",
         "threshold": "\u2265 11.5% (watch < 13%)",
-        "actual": "13.40%",
+        "actual": "14.50%",
         "status": "Pass",
         "severity": "Low",
         "comment": "Capital adequacy vs internal FI limit"
@@ -370,7 +397,7 @@
       {
         "indicator": "NPL Ratio",
         "threshold": "\u2264 1.5% (watch > 1.0%)",
-        "actual": "0.55%",
+        "actual": "0.57%",
         "status": "Pass",
         "severity": "Low",
         "comment": "Asset quality deterioration signal"
@@ -386,7 +413,7 @@
       {
         "indicator": "LCR",
         "threshold": "\u2265 105% (watch < 110%)",
-        "actual": "128.00%",
+        "actual": "137.00%",
         "status": "Pass",
         "severity": "Low",
         "comment": "Liquidity buffer for deposit / wholesale stress"
@@ -402,7 +429,7 @@
       {
         "indicator": "Efficiency Ratio",
         "threshold": "\u2264 70% (watch > 60%)",
-        "actual": "56.50%",
+        "actual": "52.80%",
         "status": "Pass",
         "severity": "Low",
         "comment": "Operating leverage / cost flexibility"
@@ -419,79 +446,79 @@
     "recommended_actions": [
       "Maintain routine annual review cycle",
       "Keep existing facility limits; no rating override needed",
-      "Refresh regulatory overlay after next 10-Q / earnings"
+      "Refresh regulatory metrics from next quarterly Report to Shareholders / SFI"
     ]
   },
   "peers": [
     {
       "ticker": "TD",
       "name": "The Toronto-Dominion Bank",
-      "cet1_ratio": 13.4,
-      "npl_ratio": 0.55,
-      "lcr": 128,
-      "roaa": 0.72,
-      "efficiency_ratio": 56.5,
-      "leverage_ratio": 4.4,
+      "cet1_ratio": 14.5,
+      "npl_ratio": 0.57,
+      "lcr": 137,
+      "roaa": 0.76,
+      "efficiency_ratio": 52.8,
+      "leverage_ratio": 4.5,
       "internal_rating": "A",
-      "score": 80.7,
+      "score": 81.9,
       "isFocus": true
     },
     {
       "ticker": "RY",
       "name": "Royal Bank of Canada",
-      "cet1_ratio": 13.2,
-      "npl_ratio": 0.48,
-      "lcr": 125,
-      "roaa": 0.85,
-      "efficiency_ratio": 54.0,
-      "leverage_ratio": 4.3,
+      "cet1_ratio": 13.7,
+      "npl_ratio": 0.86,
+      "lcr": 124,
+      "roaa": 0.95,
+      "efficiency_ratio": 52.7,
+      "leverage_ratio": 4.4,
       "internal_rating": "A",
-      "score": 81.9,
+      "score": 81.0,
       "isFocus": false
     },
     {
       "ticker": "BNS",
       "name": "The Bank of Nova Scotia",
-      "cet1_ratio": 13.0,
-      "npl_ratio": 0.78,
+      "cet1_ratio": 13.3,
+      "npl_ratio": 0.95,
       "lcr": 122,
-      "roaa": 0.68,
-      "efficiency_ratio": 58.5,
-      "leverage_ratio": 4.2,
+      "roaa": 0.66,
+      "efficiency_ratio": 54.9,
+      "leverage_ratio": 4.4,
       "internal_rating": "A",
-      "score": 76.8,
+      "score": 75.8,
       "isFocus": false
     },
     {
       "ticker": "BMO",
       "name": "Bank of Montreal",
       "cet1_ratio": 13.1,
-      "npl_ratio": 0.62,
-      "lcr": 124,
-      "roaa": 0.7,
-      "efficiency_ratio": 59.0,
-      "leverage_ratio": 4.3,
+      "npl_ratio": 1.02,
+      "lcr": 126,
+      "roaa": 0.66,
+      "efficiency_ratio": 58.6,
+      "leverage_ratio": 4.4,
       "internal_rating": "A",
-      "score": 76.8,
+      "score": 74.0,
       "isFocus": false
     },
     {
       "ticker": "CM",
       "name": "Canadian Imperial Bank of Commerce",
-      "cet1_ratio": 13.3,
-      "npl_ratio": 0.58,
-      "lcr": 126,
-      "roaa": 0.75,
-      "efficiency_ratio": 57.0,
+      "cet1_ratio": 13.4,
+      "npl_ratio": 0.64,
+      "lcr": 133,
+      "roaa": 1.06,
+      "efficiency_ratio": 51.6,
       "leverage_ratio": 4.4,
-      "internal_rating": "A",
-      "score": 81.9,
+      "internal_rating": "AA",
+      "score": 83.4,
       "isFocus": false
     }
   ],
   "market": {
-    "price": 124.8,
-    "marketCap": 206175961088,
+    "price": 124.44,
+    "marketCap": 205581221888,
     "beta": 0.875,
     "sector": "Financial Services",
     "industry": "Banks - Diversified",

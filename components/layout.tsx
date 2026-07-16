@@ -134,12 +134,14 @@ export function Hero({
   industry,
   regulatoryAsOf,
   marketAsOf,
+  regulatorySource,
 }: {
   name: string;
   sector: string;
   industry: string;
   regulatoryAsOf: string;
   marketAsOf: string;
+  regulatorySource?: string;
 }) {
   return (
     <div className="border-b border-bank-border bg-white">
@@ -162,7 +164,7 @@ export function Hero({
             sector,
             industry,
             "Python · yfinance · Next.js",
-            regulatoryAsOf ? `Reg. as of ${regulatoryAsOf}` : "",
+            regulatoryAsOf ? `Filings as of ${regulatoryAsOf}` : "",
             marketAsOf ? `Market ${marketAsOf}` : "",
           ]
             .filter(Boolean)
@@ -175,6 +177,22 @@ export function Hero({
               </span>
             ))}
         </div>
+        <div className="mt-4 flex flex-wrap gap-2 text-xs">
+          <span className="rounded border border-bank-border bg-bank-bg px-2.5 py-1 font-medium text-bank-muted">
+            Live · Yahoo — market cap, assets, earnings, trends
+          </span>
+          <span className="rounded border border-bank-green/30 bg-bank-greenSoft px-2.5 py-1 font-medium text-bank-green">
+            From filings — CET1, NPL, LCR, NIM (real published ratios)
+          </span>
+          <span className="rounded border border-amber-200 bg-amber-50 px-2.5 py-1 font-medium text-bank-warn">
+            Illustrative — internal rating, PD, facility EL, stress
+          </span>
+        </div>
+        {regulatorySource ? (
+          <p className="mt-3 max-w-3xl text-xs leading-relaxed text-bank-muted">
+            Primary regulatory source: {regulatorySource}.
+          </p>
+        ) : null}
       </div>
     </div>
   );

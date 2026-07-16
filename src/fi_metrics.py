@@ -50,6 +50,9 @@ class FICreditMetrics:
     peer_group: str
     annual_trends: list[dict[str, Any]] = field(default_factory=list)
     notes: list[str] = field(default_factory=list)
+    # Per-field provenance for the dashboard: "market" | "filing" | "derived"
+    field_sources: dict[str, str] = field(default_factory=dict)
+    regulatory_source: str = ""
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -179,10 +182,55 @@ def build_fi_metrics(data: BankMarketData) -> FICreditMetrics:
         trends.append(row)
 
     reg = load_regulatory(data.ticker)
+
+    # Prefer live Yahoo Finance profitability ratios when available.
+    info = data.info or {}
+    yf_roe = info.get("returnOnEquity")
+    yf_roa = info.get("returnOnAssets")
+    roae = round(float(yf_roe) * 100, 2) if isinstance(yf_roe, (int, float)) else reg.get("roae")
+    roaa = round(float(yf_roa) * 100, 2) if isinstance(yf_roa, (int, float)) else reg.get("roaa")
+    if isinstance(yf_roe, (int, float)) and roe is None:
+        roe = roae
+
+    field_sources: dict[str, str] = {
+        "market_cap": "market",
+        "total_assets": "market",
+        "stockholders_equity": "market",
+        "total_deposits": "market",
+        "net_income": "market",
+        "revenue": "market",
+        "equity_to_assets": "derived",
+        "roe_reported": "derived" if roe is not None else "market",
+        "asset_growth_yoy": "derived",
+        "ni_growth_yoy": "derived",
+        "provision_to_revenue": "derived",
+        "cet1_ratio": "filing",
+        "tier1_ratio": "filing",
+        "total_capital_ratio": "filing",
+        "leverage_ratio": "filing",
+        "lcr": "filing",
+        "npl_ratio": "filing",
+        "nco_ratio": "filing",
+        "allowance_to_loans": "filing",
+        "nim": "filing",
+        "efficiency_ratio": "filing",
+        "roaa": "market" if isinstance(yf_roa, (int, float)) else "filing",
+        "roae": "market" if isinstance(yf_roe, (int, float)) else "filing",
+        "loan_to_deposit": "filing",
+    }
+
+    source_label = str(reg.get("source", "Company filings"))
+    source_note = str(reg.get("source_note", ""))
     notes = [
         "FI credit analysis uses regulatory capital & asset-quality metrics — not corporate EBITDA leverage.",
-        f"Regulatory overlay as of {reg.get('regulatory_as_of', 'n/a')} ({reg.get('source', 'filings')}).",
-        "Market statements from Yahoo Finance; CET1/NPL/NIM from curated filing-based overlay.",
+        f"Regulatory metrics as of {reg.get('regulatory_as_of', 'n/a')} from {source_label}.",
+        (
+            f"Focus bank filing note: {source_note}."
+            if source_note
+            else "Capital / AQ / LCR taken from each bank's latest quarterly filings."
+        ),
+        "Market cap, assets, equity, net income, and trends from Yahoo Finance (yfinance).",
+        "Internal rating, PD, facility EL, and stress scenarios are illustrative model outputs — not agency ratings or actual exposures.",
     ]
 
     return FICreditMetrics(
@@ -211,11 +259,13 @@ def build_fi_metrics(data: BankMarketData) -> FICreditMetrics:
         allowance_to_loans=reg.get("allowance_to_loans"),
         nim=reg.get("nim"),
         efficiency_ratio=reg.get("efficiency_ratio"),
-        roaa=reg.get("roaa"),
-        roae=reg.get("roae"),
+        roaa=roaa,
+        roae=roae,
         loan_to_deposit=reg.get("loan_to_deposit"),
         g_sib=bool(reg.get("g_sib", False)),
         peer_group=str(reg.get("peer_group", "Banks")),
         annual_trends=trends,
         notes=notes,
+        field_sources=field_sources,
+        regulatory_source=source_note or source_label,
     )

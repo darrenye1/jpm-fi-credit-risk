@@ -52,6 +52,7 @@ export function KPICard({
   change,
   positive,
   tone = "default",
+  source,
 }: {
   label: string;
   value: string;
@@ -59,7 +60,28 @@ export function KPICard({
   positive?: boolean;
   /** accent = green highlight; navy = navy soft highlight */
   tone?: "default" | "accent" | "navy";
+  /** Data provenance badge shown under the label */
+  source?: "market" | "filing" | "derived" | "model";
 }) {
+  const sourceLabel =
+    source === "market"
+      ? "Live · Yahoo"
+      : source === "filing"
+        ? "From filings"
+        : source === "derived"
+          ? "Calculated"
+          : source === "model"
+            ? "Illustrative"
+            : null;
+  const sourceClass =
+    source === "model"
+      ? "border-amber-200 bg-amber-50 text-bank-warn"
+      : source === "filing"
+        ? "border-bank-green/30 bg-bank-greenSoft text-bank-green"
+        : source === "market" || source === "derived"
+          ? "border-bank-border bg-bank-bg text-bank-muted"
+          : "";
+
   return (
     <div
       className={clsx(
@@ -69,16 +91,28 @@ export function KPICard({
         tone === "default" && "border-bank-border bg-bank-card"
       )}
     >
-      <p
-        className={clsx(
-          "text-[0.7rem] font-bold uppercase tracking-[0.08em]",
-          tone === "accent" && "text-bank-green",
-          tone === "navy" && "text-bank-navy/70",
-          tone === "default" && "text-bank-muted"
+      <div className="flex items-start justify-between gap-2">
+        <p
+          className={clsx(
+            "text-[0.7rem] font-bold uppercase tracking-[0.08em]",
+            tone === "accent" && "text-bank-green",
+            tone === "navy" && "text-bank-navy/70",
+            tone === "default" && "text-bank-muted"
+          )}
+        >
+          {label}
+        </p>
+        {sourceLabel && (
+          <span
+            className={clsx(
+              "shrink-0 rounded border px-1.5 py-0.5 text-[0.65rem] font-semibold leading-none",
+              sourceClass
+            )}
+          >
+            {sourceLabel}
+          </span>
         )}
-      >
-        {label}
-      </p>
+      </div>
       <p
         className={clsx(
           "mt-2 font-display font-semibold tracking-tight",

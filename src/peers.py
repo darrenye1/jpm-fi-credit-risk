@@ -59,6 +59,15 @@ def _metrics_from_reg(ticker: str) -> FICreditMetrics:
         loan_to_deposit=reg.get("loan_to_deposit"),
         g_sib=bool(reg.get("g_sib", False)),
         peer_group=str(reg.get("peer_group", "")),
+        field_sources={
+            "cet1_ratio": "filing",
+            "npl_ratio": "filing",
+            "lcr": "filing",
+            "roaa": "filing",
+            "efficiency_ratio": "filing",
+            "leverage_ratio": "filing",
+        },
+        regulatory_source=str(reg.get("source_note", "")),
     )
 
 

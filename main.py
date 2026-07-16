@@ -44,8 +44,10 @@ def run(ticker: str = "TD") -> dict:
             "name": metrics.name,
             "framework": "Financial Institution (FI) Obligor Credit Risk",
             "disclaimer": (
-                "Educational portfolio project. Internal ratings, PDs, LGDs, and facilities "
-                "are illustrative — not official bank models, agency ratings, or actual exposures."
+                "Educational portfolio project. Market & statement figures from Yahoo Finance; "
+                "CET1/NPL/LCR and related ratios from each bank's Q1 2026 filings. "
+                "Internal ratings, PDs, LGDs, facilities, and stress scenarios are illustrative — "
+                "not official bank models, agency ratings, or actual exposures."
             ),
         },
         "metrics": metrics.to_dict(),

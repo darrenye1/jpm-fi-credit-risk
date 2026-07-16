@@ -49,6 +49,8 @@ export type Analysis = {
     peer_group: string;
     annual_trends: Array<Record<string, number | string | null>>;
     notes: string[];
+    field_sources?: Record<string, string>;
+    regulatory_source?: string;
   };
   rating: {
     ticker: string;
