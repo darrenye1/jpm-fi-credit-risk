@@ -5,6 +5,7 @@ import {
   BarChart,
   CartesianGrid,
   Cell,
+  LabelList,
   Legend,
   Line,
   LineChart,
@@ -63,31 +64,59 @@ export function TrendChart({
     revenueBn: d.revenue != null ? d.revenue / 1e9 : null,
     netIncomeBn: d.netIncome != null ? d.netIncome / 1e9 : null,
   }));
+
+  const formatBn = (v: number | string) => {
+    const n = typeof v === "number" ? v : Number(v);
+    if (!Number.isFinite(n)) return "";
+    return n.toFixed(1);
+  };
+
   return (
     <div className="h-72 w-full">
       <ResponsiveContainer>
-        <LineChart data={scaled}>
+        <LineChart data={scaled} margin={{ top: 16, right: 12, left: 0, bottom: 0 }}>
           <CartesianGrid stroke={grid} strokeDasharray="3 3" />
           <XAxis dataKey="year" tick={{ fill: tick, fontSize: 12 }} />
           <YAxis tick={{ fill: tick, fontSize: 12 }} />
-          <Tooltip contentStyle={tooltipStyle} />
+          <Tooltip
+            contentStyle={tooltipStyle}
+            formatter={(value: number, name: string) => [`$${Number(value).toFixed(1)}B`, name]}
+          />
           <Legend />
           <Line
             type="monotone"
             dataKey="revenueBn"
             name="Revenue ($B)"
             stroke={navy}
-            strokeWidth={2}
-            dot={false}
-          />
+            strokeWidth={2.5}
+            dot={{ r: 4, fill: navy, stroke: "#fff", strokeWidth: 2 }}
+            activeDot={{ r: 6 }}
+          >
+            <LabelList
+              dataKey="revenueBn"
+              position="top"
+              formatter={formatBn}
+              style={{ fill: navy, fontSize: 11, fontWeight: 600 }}
+              offset={8}
+            />
+          </Line>
           <Line
             type="monotone"
             dataKey="netIncomeBn"
             name="Net Income ($B)"
             stroke={green}
-            strokeWidth={2}
-            dot={false}
-          />
+            strokeWidth={2.5}
+            dot={{ r: 4, fill: green, stroke: "#fff", strokeWidth: 2 }}
+            activeDot={{ r: 6 }}
+          >
+            <LabelList
+              dataKey="netIncomeBn"
+              position="bottom"
+              formatter={formatBn}
+              style={{ fill: green, fontSize: 11, fontWeight: 600 }}
+              offset={8}
+            />
+          </Line>
         </LineChart>
       </ResponsiveContainer>
     </div>
