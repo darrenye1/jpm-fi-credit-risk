@@ -9,20 +9,32 @@
 5. **Framework Preset**: **Next.js** (not Python)
 6. Click **Deploy**
 
-## Update Credit Data
+## Automatic data refresh (GitHub Actions)
 
-Before deploying (or when you want fresh numbers), run locally:
+Workflow: `.github/workflows/refresh-dashboard.yml`
+
+| What | Behavior |
+|------|----------|
+| Schedule | Every **Monday** ~15:00 UTC |
+| Manual | GitHub → **Actions** → **Refresh credit dashboard** → **Run workflow** |
+| Auto-updates | Yahoo Finance market & statements → recompute rating / EL / stress → commit `analysis.json` → Vercel redeploys |
+| Manual after earnings | Edit `data/regulatory_metrics.json` (CET1, NPL, LCR, …), then run the workflow (or `python scripts/export_for_web.py` locally and push) |
+
+### Enable write permission (required once)
+
+GitHub repo → **Settings → Actions → General → Workflow permissions** → **Read and write permissions** → Save.
+
+## Local refresh
 
 ```bash
 pip install -r requirements.txt
 python scripts/export_for_web.py
+# optional: python scripts/export_for_web.py TD
 ```
 
 This updates:
 - `public/data/analysis.json`
 - `data/analysis.json`
-
-Update regulatory overlays in `data/regulatory_metrics.json` after each earnings release, then re-export.
 
 ## Local Development
 

@@ -10,7 +10,7 @@
     "name": "The Toronto-Dominion Bank",
     "as_of_market": "2026-07-16",
     "regulatory_as_of": "2026-01-31",
-    "market_cap": 205581221888,
+    "market_cap": 205630783488,
     "total_assets": 2094558000000.0,
     "stockholders_equity": 127827000000.0,
     "total_deposits": null,
@@ -517,8 +517,8 @@
     }
   ],
   "market": {
-    "price": 124.44,
-    "marketCap": 205581221888,
+    "price": 124.47,
+    "marketCap": 205630783488,
     "beta": 0.875,
     "sector": "Financial Services",
     "industry": "Banks - Diversified",

@@ -15,6 +15,8 @@ export type Analysis = {
     name: string;
     framework: string;
     disclaimer: string;
+    last_refreshed_at?: string;
+    auto_refresh?: string;
   };
   metrics: {
     ticker: string;

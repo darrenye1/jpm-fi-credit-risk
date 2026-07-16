@@ -46,6 +46,8 @@ Open [http://localhost:3000](http://localhost:3000)
 
 See [DEPLOY.md](DEPLOY.md). On Vercel: **Root Directory** = `./`, **Framework** = **Next.js** (not Python).
 
+**Auto-refresh:** GitHub Actions runs weekly (and on demand) to pull latest Yahoo Finance data, rebuild `analysis.json`, and push — Vercel redeploys automatically. After each bank earnings release, update `data/regulatory_metrics.json` (CET1 / NPL / LCR), then re-run the workflow.
+
 ## Project Structure
 
 ```

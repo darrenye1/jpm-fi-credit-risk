@@ -80,6 +80,7 @@ export default function HomePage() {
           regulatoryAsOf={metrics.regulatory_as_of}
           marketAsOf={metrics.as_of_market}
           regulatorySource={metrics.regulatory_source}
+          lastRefreshedAt={meta.last_refreshed_at}
         />
 
         <div id="overview" className="mx-auto max-w-7xl px-6 pt-10">

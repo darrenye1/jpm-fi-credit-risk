@@ -3,14 +3,16 @@
     "ticker": "TD",
     "name": "The Toronto-Dominion Bank",
     "framework": "Financial Institution (FI) Obligor Credit Risk",
-    "disclaimer": "Educational portfolio project. Market & statement figures from Yahoo Finance; CET1/NPL/LCR and related ratios from each bank's Q1 2026 filings. Internal ratings, PDs, LGDs, facilities, and stress scenarios are illustrative \u2014 not official bank models, agency ratings, or actual exposures."
+    "disclaimer": "Educational portfolio project. Market & statement figures from Yahoo Finance; CET1/NPL/LCR and related ratios from each bank's Q1 2026 filings. Internal ratings, PDs, LGDs, facilities, and stress scenarios are illustrative \u2014 not official bank models, agency ratings, or actual exposures.",
+    "last_refreshed_at": "2026-07-16 14:51 UTC",
+    "auto_refresh": "GitHub Actions refreshes Yahoo Finance market/statement data weekly. Update data/regulatory_metrics.json after each earnings release for CET1/NPL/LCR."
   },
   "metrics": {
     "ticker": "TD",
     "name": "The Toronto-Dominion Bank",
     "as_of_market": "2026-07-16",
     "regulatory_as_of": "2026-01-31",
-    "market_cap": 205581221888,
+    "market_cap": 205630783488,
     "total_assets": 2094558000000.0,
     "stockholders_equity": 127827000000.0,
     "total_deposits": null,
@@ -517,8 +519,8 @@
     }
   ],
   "market": {
-    "price": 124.44,
-    "marketCap": 205581221888,
+    "price": 124.47,
+    "marketCap": 205630783488,
     "beta": 0.875,
     "sector": "Financial Services",
     "industry": "Banks - Diversified",

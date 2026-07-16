@@ -135,6 +135,7 @@ export function Hero({
   regulatoryAsOf,
   marketAsOf,
   regulatorySource,
+  lastRefreshedAt,
 }: {
   name: string;
   sector: string;
@@ -142,6 +143,7 @@ export function Hero({
   regulatoryAsOf: string;
   marketAsOf: string;
   regulatorySource?: string;
+  lastRefreshedAt?: string;
 }) {
   return (
     <div className="border-b border-bank-border bg-white">
@@ -166,6 +168,7 @@ export function Hero({
             "Python · yfinance · Next.js",
             regulatoryAsOf ? `Filings as of ${regulatoryAsOf}` : "",
             marketAsOf ? `Market ${marketAsOf}` : "",
+            lastRefreshedAt ? `Pipeline refreshed ${lastRefreshedAt}` : "",
           ]
             .filter(Boolean)
             .map((tag) => (
@@ -179,10 +182,10 @@ export function Hero({
         </div>
         <div className="mt-4 flex flex-wrap gap-2 text-xs">
           <span className="rounded border border-bank-border bg-bank-bg px-2.5 py-1 font-medium text-bank-muted">
-            Live · Yahoo — market cap, assets, earnings, trends
+            Live · Yahoo — market cap, assets, earnings, trends (auto-refresh weekly)
           </span>
           <span className="rounded border border-bank-green/30 bg-bank-greenSoft px-2.5 py-1 font-medium text-bank-green">
-            From filings — CET1, NPL, LCR, NIM (real published ratios)
+            From filings — CET1, NPL, LCR, NIM (update after earnings)
           </span>
           <span className="rounded border border-amber-200 bg-amber-50 px-2.5 py-1 font-medium text-bank-warn">
             Illustrative — internal rating, PD, facility EL, stress

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -24,6 +25,13 @@ def _round_floats(obj, ndigits: int = 4):
 
 def export(ticker: str = "TD") -> Path:
     payload = _round_floats(run(ticker))
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    payload.setdefault("meta", {})
+    payload["meta"]["last_refreshed_at"] = now
+    payload["meta"]["auto_refresh"] = (
+        "GitHub Actions refreshes Yahoo Finance market/statement data weekly. "
+        "Update data/regulatory_metrics.json after each earnings release for CET1/NPL/LCR."
+    )
 
     targets = [
         ROOT / "public" / "data" / "analysis.json",
@@ -38,4 +46,5 @@ def export(ticker: str = "TD") -> Path:
 
 
 if __name__ == "__main__":
-    export("TD")
+    ticker = sys.argv[1] if len(sys.argv) > 1 else "TD"
+    export(ticker.upper())
