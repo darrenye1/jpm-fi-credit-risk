@@ -148,13 +148,16 @@ def _score_efficiency(v: float | None) -> tuple[float, str]:
 def _score_leverage(v: float | None) -> tuple[float, str]:
     if v is None:
         return 50.0, "Leverage ratio unavailable — neutral score"
-    if v >= 6.5:
-        return 88.0, "Conservative leverage"
-    if v >= 5.5:
-        return 72.0, "Adequate leverage ratio"
+    # Higher is better. US SLR often >6%; Canadian OSFI leverage ~4%+ is solid.
+    if v >= 6.0:
+        return 90.0, "Conservative leverage (US-style SLR comfort)"
     if v >= 4.5:
-        return 55.0, "Tighter leverage"
-    return 35.0, "Aggressive leverage"
+        return 82.0, "Solid leverage vs Canadian / Basel floors"
+    if v >= 4.0:
+        return 70.0, "Adequate leverage ratio"
+    if v >= 3.5:
+        return 50.0, "Tighter leverage — monitor"
+    return 30.0, "Aggressive leverage"
 
 
 def _score_to_rating(score: float) -> str:

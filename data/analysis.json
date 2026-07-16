@@ -1,122 +1,122 @@
 {
   "meta": {
-    "ticker": "JPM",
-    "name": "JPMorgan Chase & Co.",
+    "ticker": "TD",
+    "name": "The Toronto-Dominion Bank",
     "framework": "Financial Institution (FI) Obligor Credit Risk",
     "disclaimer": "Educational portfolio project. Internal ratings, PDs, LGDs, and facilities are illustrative \u2014 not official bank models, agency ratings, or actual exposures."
   },
   "metrics": {
-    "ticker": "JPM",
-    "name": "JPMorgan Chase & Co.",
+    "ticker": "TD",
+    "name": "The Toronto-Dominion Bank",
     "as_of_market": "2026-07-15",
-    "regulatory_as_of": "2025-12-31",
-    "market_cap": 922156204032,
-    "total_assets": 4424900000000.0,
-    "stockholders_equity": 362438000000.0,
+    "regulatory_as_of": "2025-10-31",
+    "market_cap": 206175961088,
+    "total_assets": 2094558000000.0,
+    "stockholders_equity": 127827000000.0,
     "total_deposits": null,
-    "net_income": 57048000000.0,
-    "revenue": 181847000000.0,
-    "equity_to_assets": 8.1909,
-    "roe_reported": 15.7401,
-    "asset_growth_yoy": 10.5447,
-    "ni_growth_yoy": -2.4337,
+    "net_income": 20538000000.0,
+    "revenue": 61281000000.0,
+    "equity_to_assets": 6.1028,
+    "roe_reported": 16.067,
+    "asset_growth_yoy": 1.5912,
+    "ni_growth_yoy": 132.2778,
     "provision_to_revenue": null,
-    "cet1_ratio": 15.7,
-    "tier1_ratio": 16.8,
-    "total_capital_ratio": 18.5,
-    "leverage_ratio": 6.9,
-    "lcr": 113,
-    "npl_ratio": 0.72,
-    "nco_ratio": 0.58,
-    "allowance_to_loans": 1.65,
-    "nim": 2.65,
-    "efficiency_ratio": 51.2,
-    "roaa": 1.35,
-    "roae": 16.8,
-    "loan_to_deposit": 58.0,
+    "cet1_ratio": 13.4,
+    "tier1_ratio": 14.8,
+    "total_capital_ratio": 16.9,
+    "leverage_ratio": 4.4,
+    "lcr": 128,
+    "npl_ratio": 0.55,
+    "nco_ratio": 0.42,
+    "allowance_to_loans": 0.95,
+    "nim": 1.95,
+    "efficiency_ratio": 56.5,
+    "roaa": 0.72,
+    "roae": 12.8,
+    "loan_to_deposit": 92.0,
     "g_sib": true,
-    "peer_group": "G-SIB / Money Center",
+    "peer_group": "Canadian Big 5 / G-SIB",
     "annual_trends": [
       {
         "year": 2022,
-        "totalAssets": 3665743000000.0,
-        "equity": 292332000000.0,
-        "netIncome": 37676000000.0,
-        "revenue": 127727000000.0,
-        "equityToAssets": 7.9747
+        "totalAssets": 1917528000000.0,
+        "equity": 111383000000.0,
+        "netIncome": 17429000000.0,
+        "revenue": 45762000000.0,
+        "equityToAssets": 5.8087
       },
       {
         "year": 2023,
-        "totalAssets": 3875393000000.0,
-        "equity": 327878000000.0,
-        "netIncome": 49552000000.0,
-        "revenue": 154952000000.0,
-        "equityToAssets": 8.4605
+        "totalAssets": 1955139000000.0,
+        "equity": 112071000000.0,
+        "netIncome": 10634000000.0,
+        "revenue": 51524000000.0,
+        "equityToAssets": 5.7321
       },
       {
         "year": 2024,
-        "totalAssets": 4002814000000.0,
-        "equity": 344758000000.0,
-        "netIncome": 58471000000.0,
-        "revenue": 169439000000.0,
-        "equityToAssets": 8.6129
+        "totalAssets": 2061751000000.0,
+        "equity": 115160000000.0,
+        "netIncome": 8842000000.0,
+        "revenue": 56256000000.0,
+        "equityToAssets": 5.5855
       },
       {
         "year": 2025,
-        "totalAssets": 4424900000000.0,
-        "equity": 362438000000.0,
-        "netIncome": 57048000000.0,
-        "revenue": 181847000000.0,
-        "equityToAssets": 8.1909
+        "totalAssets": 2094558000000.0,
+        "equity": 127827000000.0,
+        "netIncome": 20538000000.0,
+        "revenue": 61281000000.0,
+        "equityToAssets": 6.1028
       }
     ],
     "notes": [
       "FI credit analysis uses regulatory capital & asset-quality metrics \u2014 not corporate EBITDA leverage.",
-      "Regulatory overlay as of 2025-12-31 (Company filings / investor presentations (illustrative for portfolio demo)).",
+      "Regulatory overlay as of 2025-10-31 (Company filings / investor presentations (illustrative for portfolio demo)).",
       "Market statements from Yahoo Finance; CET1/NPL/NIM from curated filing-based overlay."
     ]
   },
   "rating": {
-    "ticker": "JPM",
-    "total_score": 86.8,
-    "internal_rating": "AA",
-    "pd_ttc_pct": 0.05,
-    "outlook": "Stable-Positive",
+    "ticker": "TD",
+    "total_score": 80.7,
+    "internal_rating": "A",
+    "pd_ttc_pct": 0.1,
+    "outlook": "Stable",
     "factors": [
       {
         "name": "CET1 Ratio",
         "category": "Capital",
-        "raw_value": 15.7,
+        "raw_value": 13.4,
         "unit": "%",
-        "score": 95.0,
+        "score": 85.0,
         "weight": 0.25,
-        "weighted": 23.75,
-        "rationale": "CET1 well above peer / regulatory comfort"
+        "weighted": 21.25,
+        "rationale": "Strong CET1 vs G-SIB peers"
       },
       {
         "name": "Leverage Ratio",
         "category": "Capital",
-        "raw_value": 6.9,
+        "raw_value": 4.4,
         "unit": "%",
-        "score": 88.0,
+        "score": 70.0,
         "weight": 0.1,
-        "weighted": 8.8,
-        "rationale": "Conservative leverage"
+        "weighted": 7.0,
+        "rationale": "Adequate leverage ratio"
       },
       {
         "name": "NPL Ratio",
         "category": "Asset Quality",
-        "raw_value": 0.72,
+        "raw_value": 0.55,
         "unit": "%",
-        "score": 80.0,
+        "score": 92.0,
         "weight": 0.18,
-        "weighted": 14.4,
-        "rationale": "Solid asset quality"
+        "weighted": 16.56,
+        "rationale": "Very clean asset quality"
       },
       {
         "name": "NCO Ratio",
         "category": "Asset Quality",
-        "raw_value": 0.58,
+        "raw_value": 0.42,
         "unit": "%",
         "score": 78.0,
         "weight": 0.1,
@@ -126,32 +126,32 @@
       {
         "name": "LCR",
         "category": "Liquidity",
-        "raw_value": 113,
+        "raw_value": 128,
         "unit": "%",
-        "score": 80.0,
+        "score": 90.0,
         "weight": 0.15,
-        "weighted": 12.0,
-        "rationale": "LCR above regulatory minimum with buffer"
+        "weighted": 13.5,
+        "rationale": "Comfortable liquidity coverage"
       },
       {
         "name": "ROAA",
         "category": "Earnings",
-        "raw_value": 1.35,
+        "raw_value": 0.72,
         "unit": "%",
-        "score": 90.0,
+        "score": 55.0,
         "weight": 0.12,
-        "weighted": 10.8,
-        "rationale": "Strong through-cycle profitability"
+        "weighted": 6.6,
+        "rationale": "Adequate but below top-tier peers"
       },
       {
         "name": "Efficiency Ratio",
         "category": "Earnings",
-        "raw_value": 51.2,
+        "raw_value": 56.5,
         "unit": "%",
-        "score": 92.0,
+        "score": 80.0,
         "weight": 0.1,
-        "weighted": 9.2,
-        "rationale": "Best-in-class efficiency"
+        "weighted": 8.0,
+        "rationale": "Strong cost discipline"
       }
     ],
     "methodology_notes": [
@@ -161,9 +161,9 @@
     ]
   },
   "portfolio": {
-    "obligor": "JPM",
-    "rating": "AA",
-    "pd_pct": 0.05,
+    "obligor": "TD",
+    "rating": "A",
+    "pd_pct": 0.1,
     "facilities": [
       {
         "facility": {
@@ -178,9 +178,9 @@
         },
         "ead_mm": 272.0,
         "lgd_pct": 45.0,
-        "pd_pct": 0.05,
-        "el_mm": 0.0612,
-        "el_bps_of_ead": 2.2,
+        "pd_pct": 0.1,
+        "el_mm": 0.1224,
+        "el_bps_of_ead": 4.5,
         "risk_weight_note": "Illustrative standardized-style LGD; not IRB approved estimates."
       },
       {
@@ -196,9 +196,9 @@
         },
         "ead_mm": 250.0,
         "lgd_pct": 45.0,
-        "pd_pct": 0.05,
-        "el_mm": 0.0563,
-        "el_bps_of_ead": 2.2,
+        "pd_pct": 0.1,
+        "el_mm": 0.1125,
+        "el_bps_of_ead": 4.5,
         "risk_weight_note": "Illustrative standardized-style LGD; not IRB approved estimates."
       },
       {
@@ -214,20 +214,20 @@
         },
         "ead_mm": 75.0,
         "lgd_pct": 45.0,
-        "pd_pct": 0.05,
-        "el_mm": 0.0169,
-        "el_bps_of_ead": 2.2,
+        "pd_pct": 0.1,
+        "el_mm": 0.0338,
+        "el_bps_of_ead": 4.5,
         "risk_weight_note": "Illustrative standardized-style LGD; not IRB approved estimates."
       }
     ],
     "total_commitment_mm": 825.0,
     "total_ead_mm": 597.0,
-    "total_el_mm": 0.1344,
+    "total_el_mm": 0.2687,
     "narrative": [
-      "Hypothetical bank exposure to JPM as FI obligor / counterparty.",
-      "PD from internal rating AA (0.05% TTC).",
+      "Hypothetical bank exposure to TD as FI obligor / counterparty.",
+      "PD from internal rating A (0.10% TTC).",
       "EAD = drawn + undrawn \u00d7 CCF; EL = PD \u00d7 LGD \u00d7 EAD.",
-      "Facilities are illustrative for demo \u2014 not actual JPMorgan Chase borrowings."
+      "Facilities are illustrative for demo \u2014 not actual TD Bank borrowings."
     ]
   },
   "stress": [
@@ -245,17 +245,17 @@
         "pd_multiplier": 1.0
       },
       "stressed_metrics": {
-        "cet1_ratio": 15.7,
-        "npl_ratio": 0.72,
-        "nco_ratio": 0.58,
-        "lcr": 113.0,
-        "roaa": 1.35,
-        "efficiency_ratio": 51.2
+        "cet1_ratio": 13.4,
+        "npl_ratio": 0.55,
+        "nco_ratio": 0.42,
+        "lcr": 128.0,
+        "roaa": 0.72,
+        "efficiency_ratio": 56.5
       },
-      "rating": "AA",
-      "score": 86.8,
-      "pd_pct": 0.05,
-      "total_el_mm": 0.1344,
+      "rating": "A",
+      "score": 80.7,
+      "pd_pct": 0.1,
+      "total_el_mm": 0.2687,
       "el_vs_base_mm": 0.0,
       "flags": [
         "No hard limit breach under this scenario"
@@ -275,18 +275,18 @@
         "pd_multiplier": 1.5
       },
       "stressed_metrics": {
-        "cet1_ratio": 14.9,
-        "npl_ratio": 1.07,
-        "nco_ratio": 0.83,
-        "lcr": 108,
-        "roaa": 1.1,
-        "efficiency_ratio": 54.2
+        "cet1_ratio": 12.6,
+        "npl_ratio": 0.9,
+        "nco_ratio": 0.67,
+        "lcr": 123,
+        "roaa": 0.47,
+        "efficiency_ratio": 59.5
       },
       "rating": "BBB+",
-      "score": 73.8,
+      "score": 70.6,
       "pd_pct": 0.375,
       "total_el_mm": 1.0075,
-      "el_vs_base_mm": 0.8731,
+      "el_vs_base_mm": 0.7388,
       "flags": [
         "No hard limit breach under this scenario"
       ]
@@ -305,21 +305,22 @@
         "pd_multiplier": 3.0
       },
       "stressed_metrics": {
-        "cet1_ratio": 13.2,
-        "npl_ratio": 1.92,
-        "nco_ratio": 1.48,
-        "lcr": 98,
-        "roaa": 0.65,
-        "efficiency_ratio": 59.2
+        "cet1_ratio": 10.9,
+        "npl_ratio": 1.75,
+        "nco_ratio": 1.32,
+        "lcr": 113,
+        "roaa": 0.02,
+        "efficiency_ratio": 64.5
       },
-      "rating": "BBB-",
-      "score": 59.0,
-      "pd_pct": 1.8,
-      "total_el_mm": 4.8357,
-      "el_vs_base_mm": 4.7013,
+      "rating": "BB+",
+      "score": 54.8,
+      "pd_pct": 3.0,
+      "total_el_mm": 8.0595,
+      "el_vs_base_mm": 7.7908,
       "flags": [
+        "CET1 below internal early-warning threshold (11.5%)",
         "NPL above watchlist threshold (1.5%)",
-        "LCR buffer thin (<105%)"
+        "Internal rating migrated to BB+"
       ]
     },
     {
@@ -336,32 +337,32 @@
         "pd_multiplier": 2.0
       },
       "stressed_metrics": {
-        "cet1_ratio": 15.2,
-        "npl_ratio": 0.92,
-        "nco_ratio": 0.68,
-        "lcr": 88,
-        "roaa": 0.95,
-        "efficiency_ratio": 55.2
+        "cet1_ratio": 12.9,
+        "npl_ratio": 0.75,
+        "nco_ratio": 0.52,
+        "lcr": 103,
+        "roaa": 0.32,
+        "efficiency_ratio": 60.5
       },
-      "rating": "BBB+",
-      "score": 73.5,
-      "pd_pct": 0.5,
-      "total_el_mm": 1.3433,
-      "el_vs_base_mm": 1.2089,
+      "rating": "BBB",
+      "score": 66.1,
+      "pd_pct": 0.8,
+      "total_el_mm": 2.1492,
+      "el_vs_base_mm": 1.8805,
       "flags": [
         "LCR buffer thin (<105%)"
       ]
     }
   ],
   "earlyWarning": {
-    "ticker": "JPM",
+    "ticker": "TD",
     "watchlist": false,
     "overall_status": "Pass",
     "items": [
       {
         "indicator": "CET1 Ratio",
         "threshold": "\u2265 11.5% (watch < 13%)",
-        "actual": "15.70%",
+        "actual": "13.40%",
         "status": "Pass",
         "severity": "Low",
         "comment": "Capital adequacy vs internal FI limit"
@@ -369,7 +370,7 @@
       {
         "indicator": "NPL Ratio",
         "threshold": "\u2264 1.5% (watch > 1.0%)",
-        "actual": "0.72%",
+        "actual": "0.55%",
         "status": "Pass",
         "severity": "Low",
         "comment": "Asset quality deterioration signal"
@@ -377,7 +378,7 @@
       {
         "indicator": "NCO Ratio",
         "threshold": "\u2264 1.0% (watch > 0.7%)",
-        "actual": "0.58%",
+        "actual": "0.42%",
         "status": "Pass",
         "severity": "Low",
         "comment": "Loss content / underwriting quality"
@@ -385,7 +386,7 @@
       {
         "indicator": "LCR",
         "threshold": "\u2265 105% (watch < 110%)",
-        "actual": "113.00%",
+        "actual": "128.00%",
         "status": "Pass",
         "severity": "Low",
         "comment": "Liquidity buffer for deposit / wholesale stress"
@@ -393,15 +394,15 @@
       {
         "indicator": "ROAA",
         "threshold": "\u2265 0.60% (watch < 0.90%)",
-        "actual": "1.35%",
-        "status": "Pass",
-        "severity": "Low",
+        "actual": "0.72%",
+        "status": "Watch",
+        "severity": "Medium",
         "comment": "Earnings capacity to absorb credit costs"
       },
       {
         "indicator": "Efficiency Ratio",
         "threshold": "\u2264 70% (watch > 60%)",
-        "actual": "51.20%",
+        "actual": "56.50%",
         "status": "Pass",
         "severity": "Low",
         "comment": "Operating leverage / cost flexibility"
@@ -409,7 +410,7 @@
       {
         "indicator": "Internal Rating",
         "threshold": "\u2265 BBB- (watch \u2264 BBB)",
-        "actual": "AA",
+        "actual": "A",
         "status": "Pass",
         "severity": "Low",
         "comment": "Obligor grade vs investment-grade policy floor"
@@ -423,62 +424,75 @@
   },
   "peers": [
     {
-      "ticker": "JPM",
-      "name": "JPMorgan Chase & Co.",
-      "cet1_ratio": 15.7,
-      "npl_ratio": 0.72,
-      "lcr": 113,
-      "roaa": 1.35,
-      "efficiency_ratio": 51.2,
-      "leverage_ratio": 6.9,
-      "internal_rating": "AA",
-      "score": 86.8,
+      "ticker": "TD",
+      "name": "The Toronto-Dominion Bank",
+      "cet1_ratio": 13.4,
+      "npl_ratio": 0.55,
+      "lcr": 128,
+      "roaa": 0.72,
+      "efficiency_ratio": 56.5,
+      "leverage_ratio": 4.4,
+      "internal_rating": "A",
+      "score": 80.7,
       "isFocus": true
     },
     {
-      "ticker": "BAC",
-      "name": "Bank of America Corp.",
-      "cet1_ratio": 13.5,
-      "npl_ratio": 0.85,
-      "lcr": 110,
-      "roaa": 0.95,
-      "efficiency_ratio": 63.5,
-      "leverage_ratio": 6.1,
-      "internal_rating": "A",
-      "score": 77.8,
-      "isFocus": false
-    },
-    {
-      "ticker": "WFC",
-      "name": "Wells Fargo & Co.",
-      "cet1_ratio": 11.8,
-      "npl_ratio": 0.95,
+      "ticker": "RY",
+      "name": "Royal Bank of Canada",
+      "cet1_ratio": 13.2,
+      "npl_ratio": 0.48,
       "lcr": 125,
-      "roaa": 1.05,
-      "efficiency_ratio": 66.0,
-      "leverage_ratio": 7.8,
-      "internal_rating": "BBB+",
-      "score": 72.3,
+      "roaa": 0.85,
+      "efficiency_ratio": 54.0,
+      "leverage_ratio": 4.3,
+      "internal_rating": "A",
+      "score": 81.9,
       "isFocus": false
     },
     {
-      "ticker": "C",
-      "name": "Citigroup Inc.",
-      "cet1_ratio": 13.6,
-      "npl_ratio": 0.88,
-      "lcr": 116,
-      "roaa": 0.72,
-      "efficiency_ratio": 60.0,
-      "leverage_ratio": 5.9,
+      "ticker": "BNS",
+      "name": "The Bank of Nova Scotia",
+      "cet1_ratio": 13.0,
+      "npl_ratio": 0.78,
+      "lcr": 122,
+      "roaa": 0.68,
+      "efficiency_ratio": 58.5,
+      "leverage_ratio": 4.2,
       "internal_rating": "A",
-      "score": 75.4,
+      "score": 76.8,
+      "isFocus": false
+    },
+    {
+      "ticker": "BMO",
+      "name": "Bank of Montreal",
+      "cet1_ratio": 13.1,
+      "npl_ratio": 0.62,
+      "lcr": 124,
+      "roaa": 0.7,
+      "efficiency_ratio": 59.0,
+      "leverage_ratio": 4.3,
+      "internal_rating": "A",
+      "score": 76.8,
+      "isFocus": false
+    },
+    {
+      "ticker": "CM",
+      "name": "Canadian Imperial Bank of Commerce",
+      "cet1_ratio": 13.3,
+      "npl_ratio": 0.58,
+      "lcr": 126,
+      "roaa": 0.75,
+      "efficiency_ratio": 57.0,
+      "leverage_ratio": 4.4,
+      "internal_rating": "A",
+      "score": 81.9,
       "isFocus": false
     }
   ],
   "market": {
-    "price": 346.91,
-    "marketCap": 922156204032,
-    "beta": null,
+    "price": 124.8,
+    "marketCap": 206175961088,
+    "beta": 0.875,
     "sector": "Financial Services",
     "industry": "Banks - Diversified",
     "currency": "USD"

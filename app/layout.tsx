@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "JPM FI Credit Risk | Darren Ye",
+  title: "TD Bank FI Credit Risk | Darren Ye",
   description:
-    "Financial Institution obligor credit risk analysis for JPMorgan Chase — capital, asset quality, internal rating, facility EL, stress testing, and early warning.",
+    "Financial Institution obligor credit risk analysis for TD Bank — capital, asset quality, internal rating, facility EL, stress testing, and early warning.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

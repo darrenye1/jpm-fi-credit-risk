@@ -1,6 +1,6 @@
-# JPM Financial Institution Credit Risk Dashboard
+# TD Bank Financial Institution Credit Risk Dashboard
 
-Corporate banking–style **FI obligor credit risk** analysis for **JPMorgan Chase (JPM)**, with a Python pipeline and a Next.js dashboard for Vercel.
+Corporate banking–style **FI obligor credit risk** analysis for **The Toronto-Dominion Bank (TD)**, with a Python pipeline and a Next.js dashboard for Vercel.
 
 This is **not** a corporate EBITDA / covenant model. Banks are scored on capital, asset quality, liquidity, and earnings.
 
@@ -13,7 +13,7 @@ This is **not** a corporate EBITDA / covenant model. Banks are scored on capital
 | **Facility EL** | Hypothetical revolver / term loan / SBLC → EAD, LGD, EL |
 | **Stress Testing** | Mild, severe, and funding/deposit shock scenarios |
 | **Early Warning** | Policy thresholds, watchlist, recommended actions |
-| **Peers** | JPM vs BAC, WFC, C on the same scorecard |
+| **Peers** | TD vs RY, BNS, BMO, CM (Canadian Big 5) |
 
 ## Tech Stack
 
@@ -62,7 +62,7 @@ See [DEPLOY.md](DEPLOY.md). On Vercel: **Root Directory** = `./`, **Framework** 
 
 ## Interview Narrative
 
-> Built an FI credit risk workflow for JPM: regulatory capital & asset-quality scorecard, facility-level expected loss, stress scenarios, and early-warning monitoring — deployed as an interactive credit dashboard.
+> Built an FI credit risk workflow for TD Bank: regulatory capital & asset-quality scorecard, facility-level expected loss, stress scenarios, and early-warning monitoring — deployed as an interactive credit dashboard.
 
 ## Disclaimer
 

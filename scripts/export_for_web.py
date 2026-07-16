@@ -22,7 +22,7 @@ def _round_floats(obj, ndigits: int = 4):
     return obj
 
 
-def export(ticker: str = "JPM") -> Path:
+def export(ticker: str = "TD") -> Path:
     payload = _round_floats(run(ticker))
 
     targets = [
@@ -38,4 +38,4 @@ def export(ticker: str = "JPM") -> Path:
 
 
 if __name__ == "__main__":
-    export("JPM")
+    export("TD")

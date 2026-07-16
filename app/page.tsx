@@ -192,7 +192,7 @@ export default function HomePage() {
           <Section
             id="facility"
             title="Hypothetical Facility EL"
-            subtitle="EL = PD × LGD × EAD. Facilities illustrate a corporate-banking hold to an FI obligor — not actual JPM debt."
+            subtitle="EL = PD × LGD × EAD. Facilities illustrate a corporate-banking hold to an FI obligor — not actual TD Bank debt."
           >
             <div className="mb-6 grid gap-4 sm:grid-cols-3">
               <KPICard
@@ -341,8 +341,8 @@ export default function HomePage() {
           {/* Peers */}
           <Section
             id="peers"
-            title="G-SIB / Money-Center Comparison"
-            subtitle="Same FI scorecard applied to JPM, BAC, WFC, and C for relative positioning."
+            title="Canadian Big 5 Comparison"
+            subtitle="Same FI scorecard applied to TD, RY, BNS, BMO, and CM for relative positioning."
           >
             <div className="grid gap-6 lg:grid-cols-2">
               <Card>

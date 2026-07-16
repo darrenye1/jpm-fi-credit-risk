@@ -1,4 +1,4 @@
-"""Run full JPM FI credit risk analysis pipeline."""
+"""Run full TD Bank FI credit risk analysis pipeline."""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ OUTPUTS = ROOT / "outputs"
 REPORTS = OUTPUTS / "reports"
 
 
-def run(ticker: str = "JPM") -> dict:
+def run(ticker: str = "TD") -> dict:
     print(f"[1/6] Fetching market & statements for {ticker}...")
     data = FIDataFetcher(ticker).fetch()
 
@@ -106,4 +106,4 @@ def _executive_summary(payload: dict) -> str:
 
 
 if __name__ == "__main__":
-    run("JPM")
+    run("TD")

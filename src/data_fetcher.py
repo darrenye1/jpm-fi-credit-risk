@@ -63,7 +63,7 @@ def _to_annual_columns(df: pd.DataFrame) -> pd.DataFrame:
 class FIDataFetcher:
     """Pull Yahoo Finance fundamentals + price history for bank tickers."""
 
-    def __init__(self, ticker: str = "JPM"):
+    def __init__(self, ticker: str = "TD"):
         self.ticker = ticker.upper()
         self._stock = yf.Ticker(self.ticker)
 

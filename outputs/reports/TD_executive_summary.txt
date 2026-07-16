@@ -1,10 +1,10 @@
-FI CREDIT RISK MEMO — JPM (JPMorgan Chase & Co.)
+FI CREDIT RISK MEMO — TD (The Toronto-Dominion Bank)
 ============================================================
-Internal Rating: AA  |  Score: 86.8  |  Outlook: Stable-Positive
-TTC PD: 0.05%
-CET1: 15.7%  |  NPL: 0.72%  |  LCR: 113%
+Internal Rating: A  |  Score: 80.7  |  Outlook: Stable
+TTC PD: 0.10%
+CET1: 13.4%  |  NPL: 0.55%  |  LCR: 128%
 Hypothetical Total Commitment: $825mm
-Total EAD: $597.0mm  |  Total EL: $0.134mm
+Total EAD: $597.0mm  |  Total EL: $0.269mm
 Early Warning: Pass  |  Watchlist: False
 
 Key actions:

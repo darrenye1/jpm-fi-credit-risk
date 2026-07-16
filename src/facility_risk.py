@@ -123,7 +123,7 @@ def build_portfolio_el(
         f"Hypothetical bank exposure to {rating.ticker} as FI obligor / counterparty.",
         f"PD from internal rating {rating.internal_rating} ({rating.pd_ttc_pct:.2f}% TTC).",
         "EAD = drawn + undrawn × CCF; EL = PD × LGD × EAD.",
-        "Facilities are illustrative for demo — not actual JPMorgan Chase borrowings.",
+        "Facilities are illustrative for demo — not actual TD Bank borrowings.",
     ]
     return PortfolioEL(
         obligor=rating.ticker,

@@ -101,7 +101,7 @@ export function Header({
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-accent/20 font-display text-sm font-bold text-brand-accent ring-1 ring-brand-accent/40">
-            JP
+            TD
           </div>
           <div>
             <h1 className="font-display text-lg font-bold text-white">{name}</h1>
