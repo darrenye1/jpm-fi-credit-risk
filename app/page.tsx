@@ -71,7 +71,6 @@ export default function HomePage() {
       <Header
         name={metrics.name}
         ticker={meta.ticker}
-        status={earlyWarning.overall_status}
       />
       <main>
         <Hero

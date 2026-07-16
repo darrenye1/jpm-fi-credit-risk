@@ -11,7 +11,7 @@ import {
   Users,
 } from "lucide-react";
 import { author } from "@/lib/author";
-import { Badge, StatusPill } from "./ui";
+import { Badge } from "./ui";
 
 const links = [
   { href: "#overview", label: "Overview", icon: Activity },
@@ -92,11 +92,9 @@ export function ProfileBanner() {
 export function Header({
   name,
   ticker,
-  status,
 }: {
   name: string;
   ticker: string;
-  status: string;
 }) {
   return (
     <header className="sticky top-0 z-50 border-b border-bank-border bg-white/95 shadow-sm backdrop-blur">
@@ -123,7 +121,6 @@ export function Header({
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <StatusPill status={status} />
           <Badge>By {author.name.split(" ")[0]}</Badge>
         </div>
       </div>
